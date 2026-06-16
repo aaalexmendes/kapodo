@@ -268,6 +268,7 @@ table.ftbl .sf.neg{color:var(--r600)}
 <button class="btn success" id="btnNew">＋ Novo</button>
 <button class="btn" id="btnExportJson" title="Backup JSON">⬇ JSON</button>
 <button class="btn" id="btnImport" title="Importar JSON">⬆ JSON</button>
+<button class="btn" id="btnRestore" title="Reconstruir os 520 lançamentos originais (extrato + projeções) e regravar na nuvem">🔄 Restaurar base</button>
 <input type="file" id="fileInput" hidden accept=".json">
 <input type="file" id="csvInput" hidden accept=".csv,text/csv">
 </div>
@@ -323,7 +324,7 @@ table.ftbl .sf.neg{color:var(--r600)}
 <div class="msum hid" id="mSum"></div>
 <div class="tsc"><table><thead><tr><th data-s="data">Competência</th><th data-s="dataPagto">Pagamento</th><th data-s="empresa">Empresa</th><th data-s="tipo">Tipo</th><th data-s="categoria">Categoria</th><th data-s="descricao">Descrição</th><th data-s="status">Status</th><th data-s="valor" style="text-align:right">Valor</th></tr></thead><tbody id="tb"></tbody></table></div>
 </section>
-<div class="ft">Hospedado em GitHub Pages · Sync via JSONbin · <strong>Kápodo + EMTRES</strong> · <span style="opacity:.7">build 2026-06-15.11</span></div>
+<div class="ft">Hospedado em GitHub Pages · Sync via JSONbin · <strong>Kápodo + EMTRES</strong> · <span style="opacity:.7">build 2026-06-16.12</span></div>
 </div>
 
 <div class="mbg hid" id="modal">
@@ -488,6 +489,7 @@ function onSave(){const desc=document.getElementById('f-desc').value.trim();cons
 function onDelete(){if(!editId)return;if(confirm('Excluir este lançamento?')){DATA=DATA.filter(x=>x.id!==editId);save();render();closeModal();toast('Excluído','s');}}
 function dl(blob,name){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),100);}
 function exportJson(){const payload={data:DATA,openingKapodo:OPEN_K,openingEmtres:OPEN_E};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});dl(blob,`kapodo_emtres_backup_${new Date().toISOString().split('T')[0]}.json`);toast('✓ JSON exportado','s');}
+async function restoreBase(){if(!confirm('Reconstruir os 520 lançamentos originais (extrato + projeções)?\n\nIsto SUBSTITUI todos os dados atuais e, se a nuvem estiver ativa, regrava na nuvem.'))return;DATA=decodeInitial();try{localStorage.removeItem(EXTRATO_FLAG);}catch(e){}applyExtratoSeed();saveLocal();render();toast('✓ Base restaurada: '+DATA.length+' lançamentos','s');if(CLOUD.enabled&&CLOUD.binId){setSync('syncing','Salvando na nuvem...');const ok=await cloudPush();setSync(ok?'synced':'error',ok?'Base restaurada e salva':'Erro ao salvar');}}
 function importJson(file){const reader=new FileReader();reader.onload=e=>{try{const obj=JSON.parse(e.target.result);let arr,opK,opE;if(Array.isArray(obj)){arr=obj;}else if(obj&&Array.isArray(obj.data)){arr=obj.data;opK=obj.openingKapodo;opE=obj.openingEmtres;}else throw new Error('Formato inválido');if(!confirm(`Substituir ${DATA.length} por ${arr.length}?`))return;DATA=arr.map(t=>{if(!t.id)t.id=crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2);if(!t.empresa)t.empresa='Kápodo';refreshDerivedFields(t);return t});if(typeof opK==='number')OPEN_K=opK;if(typeof opE==='number')OPEN_E=opE;migrateIntercompany();save();render();toast(`✓ ${DATA.length} importados`,'s');}catch(err){toast('❌ '+err.message,'e');}};reader.readAsText(file);}
 function openCloud(){document.getElementById('cfgBin').value=CLOUD.binId||'';document.getElementById('cfgKey').value=CLOUD.key||'';document.getElementById('cfgEn').checked=CLOUD.enabled;document.getElementById('cloudModal').classList.remove('hid');}
 function closeCloud(){document.getElementById('cloudModal').classList.add('hid');}
@@ -547,6 +549,7 @@ document.getElementById('iSkipInt').addEventListener('change',buildImportPreview
 document.getElementById('iAll').addEventListener('change',e=>{const v=e.target.checked;IMP.display.forEach(r=>r.include=v);renderImportTable();});
 document.getElementById('iCommit').addEventListener('click',commitImport);
 document.getElementById('btnUndoImp').addEventListener('click',undoImport);
+document.getElementById('btnRestore').addEventListener('click',restoreBase);
 document.getElementById('impModal').addEventListener('click',e=>{if(e.target.id==='impModal')closeImport();});
 document.getElementById('tMonth').addEventListener('change',e=>{S.tableMonth=e.target.value;tbl();});
 document.getElementById('btnCloud').addEventListener('click',openCloud);
