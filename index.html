@@ -332,6 +332,8 @@ html{scroll-behavior:smooth}
 .side .cloudind{width:100%;justify-content:flex-start;margin-bottom:8px}
 .sbuild{font-size:10px;color:var(--side-dim);padding:0 10px}
 .main{flex:1;min-width:0;padding:26px 30px}
+main{padding-bottom:78vh}
+section.tcard{scroll-margin-top:12px}
 .main>*{max-width:1240px}
 .ic{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-2px}
 h3 .ic,.secttl .ic{width:16px;height:16px;margin-right:2px}
@@ -526,7 +528,7 @@ table.bktbl tbody tr.bkrev td{background:rgba(214,158,46,.12)}
 <button class="btn danger" id="btnRestore" title="Reconstruir a base oficial: extratos completos até 07/09/2026 + projeções futuras — regrava na nuvem"><svg class="ic" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg> Restaurar base</button>
 </div>
 <input type="file" id="fileInput" hidden accept=".json">
-<input type="file" id="csvInput" hidden accept=".csv,.pdf,.xlsx,.xls,text/csv,application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+<input type="file" id="csvInput" hidden multiple accept=".csv,.pdf,.xlsx,.xls,text/csv,application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
 <div class="sgrow"></div>
 <div class="sdiv">Aparência</div>
 <div class="tsw" id="tsw"><button class="tsb" data-th="light" type="button"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg> Claro</button><button class="tsb" data-th="dark" type="button"><svg class="ic" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg> Escuro</button></div>
@@ -675,14 +677,14 @@ table.bktbl tbody tr.bkrev td{background:rgba(214,158,46,.12)}
 <div class="mhd"><h3>🏦 Importar extrato bancário</h3><button class="mcl" id="iClose">×</button></div>
 <div class="mbd">
 <div class="imp-step">
-<label style="font-size:12px;font-weight:600;color:var(--n700);display:block;margin-bottom:8px">1 · Empresa do extrato</label>
+<label style="font-size:12px;font-weight:600;color:var(--n700);display:block;margin-bottom:8px">Empresa não identificada no arquivo — escolha aqui</label>
 <div class="imp-seg" id="iSeg">
 <button class="sgb" data-emp="Kápodo"><div class="nm">Kápodo</div><div class="ds">Consultoria e Empreendimentos</div></button>
 <button class="sgb" data-emp="EMTRES"><div class="nm">EMTRES</div><div class="ds">Participações</div></button>
 </div>
 </div>
 <div class="imp-step">
-<label style="font-size:12px;font-weight:600;color:var(--n700);display:block;margin-bottom:8px">2 · Arquivo CSV do extrato</label>
+<label style="font-size:12px;font-weight:600;color:var(--n700);display:block;margin-bottom:8px">Arquivos dos extratos — pode escolher os dois de uma vez</label>
 <div class="imp-drop" id="iDrop"><div class="ic">📄</div><div class="tx" id="iDropTx"><strong>Clique para escolher</strong> ou arraste o arquivo aqui (CSV, PDF ou Excel)</div></div>
 <div class="imp-hint" id="iHint">Formato esperado: colunas Data · Descrição · Valor · Saldo (padrão de extrato bancário).</div>
 </div>
@@ -691,11 +693,12 @@ table.bktbl tbody tr.bkrev td{background:rgba(214,158,46,.12)}
 <label><input type="checkbox" id="iCons" checked> Consolidar rendimentos por mês (1 linha)</label>
 <label><input type="checkbox" id="iSkipInt"> Ocultar movimentações entre contas (aplicação/resgate)</label>
 </div>
+<div class="imp-opts" id="iSaldoIni" style="flex-direction:column;align-items:flex-start;gap:4px"></div>
 <div class="imp-warn" id="iWarn"></div>
 <div class="imp-summary" id="iSummary"></div>
 <div class="fld hid" id="impCatBox" style="background:var(--n50);border:1px dashed var(--n500);border-radius:8px;padding:12px;margin-bottom:10px"><label style="margin-bottom:6px">➕ Nova categoria para esta linha</label><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end"><div style="flex:2;min-width:150px;display:flex;flex-direction:column;gap:4px"><span style="font-size:10px;color:var(--muted);font-weight:600">Nome</span><input type="text" id="impCatName" maxlength="40" placeholder="Ex.: Manutenção"></div><div style="flex:2;min-width:150px;display:flex;flex-direction:column;gap:4px"><span style="font-size:10px;color:var(--muted);font-weight:600">Grupo DRE</span><select id="impCatGrp"></select></div><button class="btn success" id="impCatAdd" type="button">Adicionar</button><button class="btn" id="impCatCancel" type="button">Cancelar</button></div></div>
 <div class="imp-tblwrap">
-<table class="imp"><thead><tr><th style="width:26px"><input type="checkbox" id="iAll" checked title="Marcar/desmarcar todos"></th><th>Data</th><th>Descrição</th><th style="text-align:right">Valor</th><th>Tipo</th><th>Categoria</th></tr></thead><tbody id="iBody"></tbody></table>
+<table class="imp"><thead><tr><th style="width:26px"><input type="checkbox" id="iAll" checked title="Marcar/desmarcar todos"></th><th>Data</th><th style="width:92px">Empresa</th><th>Descrição</th><th style="text-align:right">Valor</th><th>Tipo</th><th>Categoria</th></tr></thead><tbody id="iBody"></tbody></table>
 </div>
 </div>
 </div>
@@ -776,11 +779,11 @@ const TODAY_ISO=`${curY}-${String(curM).padStart(2,'0')}-${String(NOW.getDate())
 let BM={year:curY,month:curM};
 let FH='12';
 let S={year:String(curY),status:'all',empresa:'all',sortBy:'data',sortDir:'desc',search:'',tableMonth:'all'};
-const APP_VER={v:'1.3',d:'2026-09-23',dbr:'23/09/2026'};
+const APP_VER={v:'1.5',d:'2026-10-26',dbr:'26/10/2026'};
 let CH={};let editId=null;let pushTimer=null;let pendingDirty=false;let lastSaveTs=null;
 function fmtHM(d){if(!d)return'';const p=n=>String(n).padStart(2,'0');return p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());}
 const IMPORT_KEY='kapodo_last_import_v1';
-let IMP={empresa:null,fileName:'',rows:[],display:[],openingSuggest:null};
+let IMP={empresa:null,fileName:'',files:[],rows:[],display:[],saldos:{},openingSuggest:null};
 let lastImport={removed:[],addedIds:[],ts:null};
 try{const li=localStorage.getItem(IMPORT_KEY);if(li)lastImport=JSON.parse(li);}catch(e){}
 const fm=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0});
@@ -900,14 +903,14 @@ const BTG_STARTER=/^(pix|ted|doc|pagamento|compra|transfer|tarifa|fatura|resgate
 const MONEY_RE=/-?\d{1,3}(?:\.\d{3})*,\d{2}(?!\d)/g;
 function btgDetectEmpresa(fullText){if(/\b5858009900\d{4}\b/.test(fullText))return 'Kápodo';if(/\b5221320700\d{4}\b/.test(fullText))return 'EMTRES';const ik=fullText.search(/kapodo consultoria|k[áa]podo consultoria/i);const ie=fullText.search(/emtres participacoes|emtres participa[cç][oõ]es/i);if(ik>-1&&(ie===-1||ik<ie))return 'Kápodo';if(ie>-1)return 'EMTRES';return null;}
 function btgLinesToRows(lines){const recs=[];let cur=null;let pendPrefix=[];let abertura=null,fechamento=null;
- for(const raw of lines){const ln=String(raw).replace(/\s+/g,' ').trim();if(!ln)continue;if(BTG_JUNK.test(ln))continue;
+ for(const raw of lines){const ln=String(raw).replace(/\s+/g,' ').trim();if(!ln)continue;if(BTG_JUNK.test(ln)&&!/saldo de (abertura|fechamento)/i.test(ln))continue;
   const dm=ln.match(/^(\d{2})\/(\d{2})\/(\d{4})\b\s*(.*)$/);
   if(dm){const iso=`${dm[3]}-${dm[2]}-${dm[1]}`;let rest=dm[4]||'';const toks=rest.match(MONEY_RE)||[];
    if(/saldo de abertura/i.test(rest)&&toks.length<=1){abertura={data:iso,val:toks.length?parseBRNum(toks[0]):0};cur=null;pendPrefix=[];continue;}
    if(/saldo de fechamento/i.test(rest)&&toks.length===1){fechamento={data:iso,val:parseBRNum(toks[0])};cur=null;pendPrefix=[];continue;}
    if(toks.length<2){cur=null;pendPrefix=[];continue;}
    const valor=parseBRNum(toks[toks.length-2]);const saldo=parseBRNum(toks[toks.length-1]);
-   let desc=rest;toks.forEach(tk=>{desc=desc.replace(tk,' ');});desc=desc.replace(/\s+/g,' ').trim();
+   let desc=rest;toks.forEach(tk=>{desc=desc.replace(tk,' ');});desc=desc.replace(/R\$/g,' ').replace(/\s+/g,' ').replace(/\s*[-–]\s*$/,'').trim();
    if(pendPrefix.length){desc=(pendPrefix.join(' ')+' '+desc).trim();pendPrefix=[];}
    cur={data:iso,desc,valor,saldo};recs.push(cur);continue;}
   /* linha sem data = continuação de descrição */
@@ -916,30 +919,93 @@ function btgLinesToRows(lines){const recs=[];let cur=null;let pendPrefix=[];let 
   else if(cur){cur.desc=(cur.desc+' '+ln).trim();} /* complemento do registro anterior */
  }
  recs.forEach(r=>{if(!r.desc)r.desc='(sem descrição)';});
+ /* Sinal pelo saldo: o extrato nem sempre traz o "-" colado ao valor, e o arquivo
+    pode vir do mais recente para o mais antigo. A variação do saldo é a fonte da verdade. */
+ {const comSaldo=recs.filter(r=>typeof r.saldo==='number'&&!isNaN(r.saldo));
+  if(comSaldo.length>1){
+   const desc=comSaldo[0].data>comSaldo[comSaldo.length-1].data; /* true = mais recente primeiro */
+   let _inc=0;
+   for(let i=0;i<comSaldo.length;i++){
+    const r=comSaldo[i];
+    const ant=desc?(comSaldo[i+1]?comSaldo[i+1].saldo:(abertura&&typeof abertura.val==='number'?abertura.val:null))
+                  :(i>0?comSaldo[i-1].saldo:(abertura&&typeof abertura.val==='number'?abertura.val:null));
+    if(ant===null){if(Math.abs(r.valor)===r.valor||r.valor<0){/* mantém o sinal do texto */}continue;}
+    const d=Math.round((r.saldo-ant)*100)/100;
+    if(Math.abs(Math.abs(d)-Math.abs(r.valor))<0.02){r.valor=d;}else{r.sinalIncerto=true;_inc++;}
+   }
+   if(_inc)console.warn('[importador] '+_inc+' lançamento(s) sem conferência de sinal pelo saldo — revise antes de confirmar.');
+  }}
  /* Ajuste de conciliação: rendimentos da conta remunerada não itemizados no PDF */
  let ajuste=null;if(abertura&&fechamento){const soma=recs.reduce((a,r)=>a+r.valor,0);const drift=Math.round((fechamento.val-(abertura.val+soma))*100)/100;if(Math.abs(drift)>=0.01){ajuste={data:fechamento.data,desc:drift>0?'Rendimentos conta remunerada (ajuste de conciliação do PDF)':'Ajuste de conciliação (PDF)',valor:drift,saldo:fechamento.val};}}
  return {rows:recs,abertura,fechamento,ajuste};}
 async function parsePdfExtrato(file){const pdfjs=await loadExt('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js','pdfjsLib');pdfjs.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';const buf=await file.arrayBuffer();const doc=await pdfjs.getDocument({data:buf}).promise;const lines=[];let fullText='';for(let p=1;p<=doc.numPages;p++){const page=await doc.getPage(p);const tc=await page.getTextContent();const items=tc.items.filter(it=>it.str&&it.str.trim()).map(it=>({x:it.transform[4],y:it.transform[5],s:it.str}));items.sort((a,b)=>(b.y-a.y)||(a.x-b.x));let curLine=[],lastY=null;for(const it of items){if(lastY===null||Math.abs(it.y-lastY)<=4){curLine.push(it);}else{curLine.sort((a,b)=>a.x-b.x);lines.push(curLine.map(i=>i.s).join(' '));curLine=[it];}lastY=it.y;}if(curLine.length){curLine.sort((a,b)=>a.x-b.x);lines.push(curLine.map(i=>i.s).join(' '));}}
  fullText=lines.join('\n');const out=btgLinesToRows(lines);out.empresa=btgDetectEmpresa(fullText);return out;}
 async function parseXlsxExtrato(file){const X=await loadExt('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js','XLSX');const buf=await file.arrayBuffer();const wb=X.read(buf,{type:'array',cellDates:true});const ws=wb.Sheets[wb.SheetNames[0]];const aoa=X.utils.sheet_to_json(ws,{header:1,raw:true,defval:''});const lines=aoa.map(row=>row.map(c=>{if(c instanceof Date){return `${String(c.getDate()).padStart(2,'0')}/${String(c.getMonth()+1).padStart(2,'0')}/${c.getFullYear()}`;}if(typeof c==='number'){return c.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}return String(c);}).filter(s=>s!=='').join(' '));const fullText=lines.join('\n');const out=btgLinesToRows(lines);out.empresa=btgDetectEmpresa(fullText);return out;}
-function applyParsedExtrato(file,out){if(!out.rows.length){toast('Nenhum lançamento reconhecido no arquivo','e');return;}if(out.ajuste)out.rows.push(out.ajuste);IMP.rows=out.rows;document.getElementById('iDrop').classList.add('has');document.getElementById('iDropTx').innerHTML=`<strong>${esc(file.name)}</strong> · ${out.rows.length} linhas`;const hintEl=document.getElementById('iHint');const emp=out.empresa||detectEmpresaFromRows(out.rows);let msg=[];if(out.abertura&&out.fechamento)msg.push(`Período com saldo ${fm2(out.abertura.val)} → ${fm2(out.fechamento.val)}.`);if(out.ajuste)msg.push(`<b>Ajuste de ${fm2(out.ajuste.valor)}</b> adicionado (diferença entre lançamentos e saldo do PDF — rendimentos não itemizados).`);
- if(emp&&!IMP.empresa){selectImpEmp(emp);msg.unshift(`<span class="sugg">Empresa detectada: ${emp}</span> — confirme acima.`);}else if(emp){msg.unshift(`Empresa do arquivo: <b>${emp}</b>.`);}
- hintEl.innerHTML=msg.join(' ')||'Confira a empresa selecionada acima.';buildImportPreview();}
-function openImport(){IMP={empresa:null,fileName:'',rows:[],display:[]};document.querySelectorAll('#iSeg .sgb').forEach(b=>b.classList.remove('on'));document.getElementById('iDrop').classList.remove('has');document.getElementById('iDropTx').innerHTML='<strong>Clique para escolher</strong> ou arraste o arquivo aqui (CSV, PDF ou Excel)';document.getElementById('iHint').innerHTML='Aceita extrato do BTG em <b>CSV</b>, <b>PDF</b> ou <b>Excel</b> (.xlsx). PDF e Excel usam bibliotecas carregadas da internet no momento da importação.';document.getElementById('iReview').classList.add('hid');document.getElementById('iCommit').disabled=true;document.getElementById('iLeftInfo').textContent='';document.getElementById('iCons').checked=true;document.getElementById('iSkipInt').checked=false;document.getElementById('impCatBox').classList.add('hid');IMPCAT_ROW=null;document.getElementById('impModal').classList.remove('hid');}
+function applyParsedExtrato(file,out){if(!out.rows.length){toast('Nenhum lançamento reconhecido em '+file.name,'e');return;}
+ const emp=out.empresa||detectEmpresaFromRows(out.rows)||null;
+ if(out.ajuste)out.rows.push(out.ajuste);
+ out.rows.forEach(r=>{r.empresa=emp;r.arquivo=file.name;});
+ IMP.rows=IMP.rows.concat(out.rows);
+ IMP.files.push({name:file.name,size:file.size,empresa:emp,linhas:out.rows.length,abertura:out.abertura||null,fechamento:out.fechamento||null});
+ if(emp&&out.abertura)IMP.saldos[emp]={abertura:out.abertura,fechamento:out.fechamento||null,arquivo:file.name};
+ document.getElementById('iDrop').classList.add('has');
+ document.getElementById('iDropTx').innerHTML=IMP.files.map(f=>`<strong>${esc(f.name)}</strong> · ${f.linhas} linhas · ${f.empresa?esc(f.empresa):'<span style="color:var(--r600)">empresa não identificada</span>'}`).join('<br>')+'<br><span style="font-size:11px;color:var(--muted)">clique para adicionar outro arquivo</span>';
+ const semEmp=IMP.files.some(f=>!f.empresa);
+ document.getElementById('iSeg').parentElement.classList.toggle('hid',!semEmp);
+ const msg=[];IMP.files.forEach(f=>{if(f.abertura&&f.fechamento)msg.push(`${esc(f.name)}: saldo ${fm2(f.abertura.val)} → ${fm2(f.fechamento.val)}.`);});
+ if(semEmp)msg.unshift('<b>Um dos arquivos não foi identificado</b> — escolha a empresa acima ou ajuste linha a linha na tabela.');
+ document.getElementById('iHint').innerHTML=msg.join(' ')||'Empresa identificada pelo CNPJ do extrato.';
+ buildImportPreview();}
+function openImport(){IMP={empresa:null,fileName:'',files:[],rows:[],display:[],saldos:{}};document.querySelectorAll('#iSeg .sgb').forEach(b=>b.classList.remove('on'));document.getElementById('iSeg').parentElement.classList.add('hid');document.getElementById('iDrop').classList.remove('has');document.getElementById('iDropTx').innerHTML='<strong>Clique para escolher</strong> ou arraste os arquivos aqui — pode mandar o da Kápodo e o da EMTRES juntos (CSV, PDF ou Excel)';document.getElementById('iHint').innerHTML='A empresa de cada lançamento é identificada pelo CNPJ do próprio extrato. Se algum arquivo não for reconhecido, aparece um seletor.';document.getElementById('iReview').classList.add('hid');document.getElementById('iCommit').disabled=true;document.getElementById('iLeftInfo').textContent='';document.getElementById('iCons').checked=true;document.getElementById('iSkipInt').checked=false;document.getElementById('impCatBox').classList.add('hid');IMPCAT_ROW=null;document.getElementById('impModal').classList.remove('hid');}
 function closeImport(){document.getElementById('impModal').classList.add('hid');}
-function selectImpEmp(emp){IMP.empresa=emp;document.querySelectorAll('#iSeg .sgb').forEach(b=>b.classList.toggle('on',b.dataset.emp===emp));if(IMP.rows.length)buildImportPreview();}
-function onCsvChosen(file){if(!file)return;IMP.fileName=file.name;const ext=(file.name.split('.').pop()||'').toLowerCase();
- if(ext==='pdf'){toast('Lendo PDF...','s');parsePdfExtrato(file).then(out=>applyParsedExtrato(file,out)).catch(err=>toast('Erro ao ler PDF: '+err.message,'e'));return;}
- if(ext==='xlsx'||ext==='xls'){toast('Lendo Excel...','s');parseXlsxExtrato(file).then(out=>applyParsedExtrato(file,out)).catch(err=>toast('Erro ao ler Excel: '+err.message,'e'));return;}
- const rd=new FileReader();rd.onload=e=>{try{const rows=parseExtrato(e.target.result);if(!rows.length){toast('Nenhum lançamento reconhecido no CSV','e');return;}IMP.rows=rows;document.getElementById('iDrop').classList.add('has');document.getElementById('iDropTx').innerHTML=`<strong>${esc(file.name)}</strong> · ${rows.length} linhas`;const sug=detectEmpresaFromRows(rows);const hintEl=document.getElementById('iHint');if(!IMP.empresa&&sug){hintEl.innerHTML=`<span class="sugg">Sugestão: ${sug}</span> identificada pelo conteúdo — confirme acima ou troque.`;}else{hintEl.innerHTML='Confira a empresa selecionada acima.';}buildImportPreview();}catch(err){toast('Erro ao ler CSV: '+err.message,'e');}};rd.onerror=()=>toast('Falha ao ler o arquivo','e');rd.readAsText(file,'utf-8');}
-function buildImportPreview(){if(!IMP.rows.length)return;const consol=document.getElementById('iCons').checked;const skipInt=document.getElementById('iSkipInt').checked;const disp=[];const rendByMonth={};IMP.rows.forEach(r=>{const cl=classifyLine(r.desc,r.valor);if(cl.rend&&consol){const ym=r.data.slice(0,7);(rendByMonth[ym]=rendByMonth[ym]||{sum:0,n:0,last:r.data}).sum+=r.valor;rendByMonth[ym].n++;if(r.data>rendByMonth[ym].last)rendByMonth[ym].last=r.data;return;}disp.push({key:uid(),data:r.data,desc:r.desc,valor:r.valor,tipo:cl.tipo,categoria:cl.categoria,include:skipInt&&cl.intsweep?false:cl.include,intsweep:!!cl.intsweep,rend:!!cl.rend,cons:false});});Object.keys(rendByMonth).sort().forEach(ym=>{const o=rendByMonth[ym];const[y,m]=ym.split('-');disp.push({key:uid(),data:o.last,desc:`Rendimentos ${MESES[+m-1]}/${y.slice(2)} (${o.n} crédito${o.n>1?'s':''})`,valor:o.sum,tipo:'Receita',categoria:'Rendimentos',include:true,intsweep:false,rend:true,cons:true});});disp.sort((a,b)=>a.data<b.data?-1:a.data>b.data?1:0);IMP.display=disp;renderImportTable();}
-function renderImportTable(){const tb=document.getElementById('iBody');tb.innerHTML=IMP.display.map((r,idx)=>{const cls=(r.include?'':'off ')+(r.dup?'dup':'');const cr=r.valor>=0;const catOpts=(CAT_BY_TIPO[r.tipo]||[]).map(c=>`<option value="${esc(c)}"${c===r.categoria?' selected':''}>${esc(c)}</option>`).join('')+'<option value="__new__">➕ Criar nova categoria…</option>';const tipoOpts=['Receita','Despesa','Dividendo','Transferência'].map(tp=>`<option value="${tp}"${tp===r.tipo?' selected':''}>${tp}</option>`).join('');let badge='';if(r.cons)badge=' <span class="imp-badge cons">consolidado</span>';else if(r.intsweep)badge=' <span class="imp-badge skip">entre contas</span>';return `<tr class="${cls.trim()}" data-i="${idx}"><td><input type="checkbox" class="ichk" data-i="${idx}"${r.include?' checked':''}></td><td class="idt">${fd(r.data)}</td><td class="ides" title="${esc(r.desc)}">${esc(r.desc)}${badge}</td><td class="iv ${cr?'cr':'db'}">${fm2(Math.abs(r.valor))}</td><td><select class="itipo" data-i="${idx}">${tipoOpts}</select></td><td><select class="icat" data-i="${idx}">${catOpts}</select></td></tr>`;}).join('');tb.querySelectorAll('.ichk').forEach(c=>c.addEventListener('change',e=>{IMP.display[+e.target.dataset.i].include=e.target.checked;e.target.closest('tr').classList.toggle('off',!e.target.checked);updateImportSummary();}));tb.querySelectorAll('.itipo').forEach(s=>s.addEventListener('change',e=>{const r=IMP.display[+e.target.dataset.i];r.tipo=e.target.value;r.categoria=(CAT_BY_TIPO[r.tipo]||[])[0]||'';renderImportTable();}));tb.querySelectorAll('.icat').forEach(s=>s.addEventListener('change',e=>{const i=+e.target.dataset.i;if(e.target.value==='__new__'){openImpNewCat(i);return;}IMP.display[i].categoria=e.target.value;}));document.getElementById('iReview').classList.remove('hid');document.getElementById('iAll').checked=IMP.display.every(r=>r.include);updateImportSummary();}
+function selectImpEmp(emp){IMP.empresa=emp;document.querySelectorAll('#iSeg .sgb').forEach(b=>b.classList.toggle('on',b.dataset.emp===emp));IMP.rows.forEach(r=>{if(!r.empresa)r.empresa=emp;});if(IMP.rows.length)buildImportPreview();}
+function onCsvChosen(file){if(!file)return;if(IMP.files.some(f=>f.name===file.name&&f.size===file.size)){toast('Arquivo '+file.name+' já carregado','e');return;}IMP.fileName=IMP.fileName?IMP.fileName+', '+file.name:file.name;
+ const ext=(file.name.split('.').pop()||'').toLowerCase();
+ if(ext==='pdf'){toast('Lendo '+file.name+'…','s');parsePdfExtrato(file).then(out=>applyParsedExtrato(file,out)).catch(err=>toast('Erro ao ler PDF: '+err.message,'e'));return;}
+ if(ext==='xlsx'||ext==='xls'){toast('Lendo '+file.name+'…','s');parseXlsxExtrato(file).then(out=>applyParsedExtrato(file,out)).catch(err=>toast('Erro ao ler Excel: '+err.message,'e'));return;}
+ const rd=new FileReader();rd.onload=e=>{try{const rows=parseExtrato(e.target.result);if(!rows.length){toast('Nenhum lançamento reconhecido em '+file.name,'e');return;}applyParsedExtrato(file,{rows,empresa:detectEmpresaFromRows(rows)});}catch(err){toast('Erro ao ler CSV: '+err.message,'e');}};rd.onerror=()=>toast('Falha ao ler o arquivo','e');rd.readAsText(file,'utf-8');}
+function buildImportPreview(){if(!IMP.rows.length)return;const consol=document.getElementById('iCons').checked;const skipInt=document.getElementById('iSkipInt').checked;const disp=[];const rendBy={};
+ IMP.rows.forEach(r=>{const cl=classifyLine(r.desc,r.valor);const emp=r.empresa||IMP.empresa||null;
+  if(cl.rend&&consol){const k=(emp||'?')+'|'+r.data.slice(0,7);(rendBy[k]=rendBy[k]||{sum:0,n:0,last:r.data,emp}).sum+=r.valor;rendBy[k].n++;if(r.data>rendBy[k].last)rendBy[k].last=r.data;return;}
+  disp.push({key:uid(),data:r.data,desc:r.desc,valor:r.valor,empresa:emp,arquivo:r.arquivo||'',tipo:cl.tipo,categoria:cl.categoria,include:skipInt&&cl.intsweep?false:cl.include,intsweep:!!cl.intsweep,rend:!!cl.rend,cons:false});});
+ Object.keys(rendBy).sort().forEach(k=>{const o=rendBy[k];const ym=k.split('|')[1];const[y,m]=ym.split('-');disp.push({key:uid(),data:o.last,desc:`Rendimentos ${MESES[+m-1]}/${y.slice(2)} (${o.n} crédito${o.n>1?'s':''})`,valor:o.sum,empresa:o.emp,arquivo:'',tipo:'Receita',categoria:'Rendimentos',include:true,intsweep:false,rend:true,cons:true});});
+ disp.sort((a,b)=>(a.empresa||'').localeCompare(b.empresa||'')||(a.data<b.data?-1:a.data>b.data?1:0));IMP.display=disp;renderImportTable();}
+function renderImportTable(){const tb=document.getElementById('iBody');tb.innerHTML=IMP.display.map((r,idx)=>{const cls=(r.include?'':'off ')+(r.dup?'dup':'');const cr=r.valor>=0;const catOpts=(CAT_BY_TIPO[r.tipo]||[]).map(c=>`<option value="${esc(c)}"${c===r.categoria?' selected':''}>${esc(c)}</option>`).join('')+'<option value="__new__">➕ Criar nova categoria…</option>';const tipoOpts=['Receita','Despesa','Dividendo','Transferência'].map(tp=>`<option value="${tp}"${tp===r.tipo?' selected':''}>${tp}</option>`).join('');let badge='';if(r.cons)badge=' <span class="imp-badge cons">consolidado</span>';else if(r.intsweep)badge=' <span class="imp-badge skip">entre contas</span>';const empOpts=['Kápodo','EMTRES'].map(e=>`<option value="${e}"${e===r.empresa?' selected':''}>${e}</option>`).join('');return `<tr class="${cls.trim()}" data-i="${idx}"><td><input type="checkbox" class="ichk" data-i="${idx}"${r.include?' checked':''}></td><td class="idt">${fd(r.data)}</td><td><select class="iemp" data-i="${idx}" style="font-size:11px">${r.empresa?'':'<option value="" selected>—</option>'}${empOpts}</select></td><td class="ides" title="${esc(r.desc)}">${esc(r.desc)}${badge}</td><td class="iv ${cr?'cr':'db'}">${fm2(Math.abs(r.valor))}</td><td><select class="itipo" data-i="${idx}">${tipoOpts}</select></td><td><select class="icat" data-i="${idx}">${catOpts}</select></td></tr>`;}).join('');tb.querySelectorAll('.iemp').forEach(se=>se.addEventListener('change',e=>{IMP.display[+e.target.dataset.i].empresa=e.target.value||null;updateImportSummary();}));
+tb.querySelectorAll('.ichk').forEach(c=>c.addEventListener('change',e=>{IMP.display[+e.target.dataset.i].include=e.target.checked;e.target.closest('tr').classList.toggle('off',!e.target.checked);updateImportSummary();}));tb.querySelectorAll('.itipo').forEach(s=>s.addEventListener('change',e=>{const r=IMP.display[+e.target.dataset.i];r.tipo=e.target.value;r.categoria=(CAT_BY_TIPO[r.tipo]||[])[0]||'';renderImportTable();}));tb.querySelectorAll('.icat').forEach(s=>s.addEventListener('change',e=>{const i=+e.target.dataset.i;if(e.target.value==='__new__'){openImpNewCat(i);return;}IMP.display[i].categoria=e.target.value;}));document.getElementById('iReview').classList.remove('hid');document.getElementById('iAll').checked=IMP.display.every(r=>r.include);updateImportSummary();}
 let IMPCAT_ROW=null;
 function openImpNewCat(i){IMPCAT_ROW=i;const r=IMP.display[i];const g=document.getElementById('impCatGrp');g.innerHTML=P.G.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');g.value={'Receita':'Receita Diversa','Despesa':'Despesa Diversa','Dividendo':'Distribuição','Transferência':'Movimentação Interna'}[r.tipo]||P.G[0];document.getElementById('impCatName').value='';document.getElementById('impCatBox').classList.remove('hid');setTimeout(()=>document.getElementById('impCatName').focus(),30);}
 function closeImpNewCat(){document.getElementById('impCatBox').classList.add('hid');IMPCAT_ROW=null;renderImportTable();}
 function addImpNewCat(){if(IMPCAT_ROW===null)return;const r=IMP.display[IMPCAT_ROW];const nome=document.getElementById('impCatName').value.trim();const grupo=document.getElementById('impCatGrp').value;if(!nome){toast('Informe o nome da categoria','e');return;}if(!(CAT_BY_TIPO[r.tipo]||[]).includes(nome)){CUSTOM_CATS[r.tipo]=CUSTOM_CATS[r.tipo]||[];CUSTOM_CATS[r.tipo].push({nome,grupo});try{localStorage.setItem(CUSTOMCAT_KEY,JSON.stringify(CUSTOM_CATS));}catch(e){}schedulePush();mergeCustomCats();toast('✓ Categoria "'+nome+'" criada','s');}else toast('Categoria já existe — aplicada','s');r.categoria=nome;document.getElementById('impCatBox').classList.add('hid');IMPCAT_ROW=null;renderImportTable();}
-function updateImportSummary(){const inc=IMP.display.filter(r=>r.include);const cr=sum(inc.filter(r=>r.valor>=0),r=>r.valor);const db=sum(inc.filter(r=>r.valor<0),r=>-r.valor);const months=[...new Set(inc.map(r=>r.data.slice(0,7)))].sort();const mLbls=months.map(ym=>{const[y,m]=ym.split('-');return`${MESES[+m-1]}/${y.slice(2)}`;});let removedCount=0;if(IMP.empresa){const monSet=new Set(months);const curYM=curY*100+curM;removedCount=DATA.filter(t=>t.empresa===IMP.empresa&&monSet.has(`${t.ano}-${String(t.mes).padStart(2,'0')}`)&&!(t.status==='Projetado'&&(t.ano*100+t.mes)>=curYM)).length;}document.getElementById('iSummary').innerHTML=`<div class="ss">A importar<b>${inc.length}</b></div><div class="ss pos">Créditos<b>${fm2(cr)}</b></div><div class="ss neg">Débitos<b>${fm2(db)}</b></div><div class="ss rep">Meses<b>${months.length}</b></div>`;const warn=document.getElementById('iWarn');if(!IMP.empresa){warn.innerHTML='⚠️ Selecione a <b>empresa</b> do extrato acima para continuar.';document.getElementById('iCommit').disabled=true;}else if(!inc.length){warn.innerHTML='Nenhuma linha marcada para importar.';document.getElementById('iCommit').disabled=true;}else{warn.innerHTML=`Ao importar, os lançamentos de <b>${esc(IMP.empresa)}</b> dos meses <b>${mLbls.join(', ')}</b> serão <b>substituídos</b> pelos do extrato.${removedCount>0?` ${removedCount} lançamento(s) atual(is) desses meses serão removidos.`:''}`;document.getElementById('iCommit').disabled=false;}document.getElementById('iCommit').textContent=`Importar ${inc.length} lançamento(s)`;document.getElementById('iLeftInfo').textContent=IMP.empresa?`${IMP.empresa} · ${IMP.fileName||''}`:'';}
-function commitImport(){const inc=IMP.display.filter(r=>r.include);if(!IMP.empresa||!inc.length)return;const months=new Set(inc.map(r=>r.data.slice(0,7)));const curYM=curY*100+curM;const _kill=t=>{if(t.empresa!==IMP.empresa)return false;if(!months.has(`${t.ano}-${String(t.mes).padStart(2,'0')}`))return false;if(t.status==='Projetado'&&(t.ano*100+t.mes)>=curYM)return false;return true;};const removed=DATA.filter(_kill);const removedSnap=removed.map(t=>JSON.parse(JSON.stringify(t)));DATA=DATA.filter(t=>!_kill(t));const batch=Date.now();const addedIds=[];inc.forEach(r=>{const t={id:uid(),data:r.data,valor:Math.abs(r.valor),tipo:r.tipo,categoria:r.categoria,descricao:r.desc,empresa:IMP.empresa,dataPagto:r.data,status:'Realizado',origem:'extrato',importBatch:batch,obs:'Importado de '+(IMP.fileName||'extrato')};refreshDerivedFields(t);const _b=blocoFor(t);t.bloco=_b.bloco;t.revisar=_b.revisar;if(_b.obs)t.obs=_b.obs;refineCat(t);DATA.push(t);addedIds.push(t.id);});lastImport={removed:removedSnap,addedIds,ts:batch,empresa:IMP.empresa,fileName:IMP.fileName,months:[...months]};try{localStorage.setItem(IMPORT_KEY,JSON.stringify(lastImport));}catch(e){}const _rec=ensureProjections();const _bp=reconcilePaidProjections();save();updateUndoBtn();render();closeImport();toast(`✓ ${addedIds.length} lançamento(s) importado(s) · ${removedSnap.length} substituído(s)`+(_bp>0?` · ${_bp} prevista(s) baixada(s)`:''),'s');}
+function updateImportSummary(){const inc=IMP.display.filter(r=>r.include);const cr=sum(inc.filter(r=>r.valor>=0),r=>r.valor);const db=sum(inc.filter(r=>r.valor<0),r=>-r.valor);
+ const semEmp=inc.filter(r=>!r.empresa).length;const porEmp={};inc.forEach(r=>{if(!r.empresa)return;(porEmp[r.empresa]=porEmp[r.empresa]||{n:0,meses:new Set()});porEmp[r.empresa].n++;porEmp[r.empresa].meses.add(r.data.slice(0,7));});
+ const empresas=Object.keys(porEmp);const curYM=curY*100+curM;
+ const chips=empresas.map(e=>`<div class="ss"><span>${esc(e)}</span><b>${porEmp[e].n}</b></div>`).join('');
+ document.getElementById('iSummary').innerHTML=`<div class="ss">A importar<b>${inc.length}</b></div>${chips}<div class="ss pos">Créditos<b>${fm2(cr)}</b></div><div class="ss neg">Débitos<b>${fm2(db)}</b></div>`;
+ const warn=document.getElementById('iWarn');
+ if(semEmp){warn.innerHTML=`⚠️ ${semEmp} lançamento(s) sem empresa. Defina a empresa na coluna <b>Empresa</b> ou no seletor acima.`;document.getElementById('iCommit').disabled=true;}
+ else if(!inc.length){warn.innerHTML='Nenhuma linha marcada para importar.';document.getElementById('iCommit').disabled=true;}
+ else{let removed=0;const partes=empresas.map(e=>{const ms=[...porEmp[e].meses].sort();const monSet=new Set(ms);removed+=DATA.filter(t=>t.empresa===e&&monSet.has(`${t.ano}-${String(t.mes).padStart(2,'0')}`)&&!(t.status==='Projetado'&&(t.ano*100+t.mes)>=curYM)).length;const lbl=ms.map(ym=>{const[y,m]=ym.split('-');return`${MESES[+m-1]}/${y.slice(2)}`;}).join(', ');return `<b>${esc(e)}</b> (${lbl})`;});
+  warn.innerHTML=`Ao importar, os lançamentos de ${partes.join(' e ')} serão <b>substituídos</b> pelos do extrato.${removed>0?` ${removed} lançamento(s) atual(is) desses meses serão removidos.`:''}`;
+  document.getElementById('iCommit').disabled=false;}
+ const si=document.getElementById('iSaldoIni');if(si){const alvos=empresas.filter(e=>IMP.saldos[e]&&IMP.saldos[e].abertura);si.innerHTML=alvos.length?alvos.map(e=>`<label><input type="checkbox" class="iopen" data-emp="${esc(e)}" checked> Usar ${fm2(IMP.saldos[e].abertura.val)} de ${fd(IMP.saldos[e].abertura.data)} como <b>saldo inicial da ${esc(e)}</b></label>`).join(''):'';}
+ document.getElementById('iCommit').textContent=`Importar ${inc.length} lançamento(s)`;
+ document.getElementById('iLeftInfo').textContent=IMP.files.map(f=>f.name).join(' · ');
+ document.getElementById('iReview').classList.remove('hid');}
+function commitImport(){const inc=IMP.display.filter(r=>r.include&&r.empresa);if(!inc.length)return;
+ const curYM=curY*100+curM;const porEmp={};inc.forEach(r=>{(porEmp[r.empresa]=porEmp[r.empresa]||[]).push(r);});
+ const removedSnap=[];const addedIds=[];const batch=Date.now();const mesesTodos=new Set();
+ Object.keys(porEmp).forEach(emp=>{
+  const linhas=porEmp[emp];const months=new Set(linhas.map(r=>r.data.slice(0,7)));months.forEach(m=>mesesTodos.add(emp+' '+m));
+  const _kill=t=>{if(t.empresa!==emp)return false;if(!months.has(`${t.ano}-${String(t.mes).padStart(2,'0')}`))return false;if(t.status==='Projetado'&&(t.ano*100+t.mes)>=curYM)return false;return true;};
+  DATA.filter(_kill).forEach(t=>removedSnap.push(JSON.parse(JSON.stringify(t))));
+  DATA=DATA.filter(t=>!_kill(t));
+  linhas.forEach(r=>{const t={id:uid(),data:r.data,valor:Math.abs(r.valor),tipo:r.tipo,categoria:r.categoria,descricao:r.desc,empresa:emp,dataPagto:r.data,status:'Realizado',origem:'extrato',importBatch:batch,obs:'Importado de '+(r.arquivo||IMP.fileName||'extrato')};refreshDerivedFields(t);const _b=blocoFor(t);t.bloco=_b.bloco;t.revisar=_b.revisar;if(_b.obs)t.obs=_b.obs;refineCat(t);DATA.push(t);addedIds.push(t.id);});});
+ /* saldo inicial a partir do "saldo de abertura" do extrato */
+ let saldosSet=0;document.querySelectorAll('#iSaldoIni .iopen:checked').forEach(ch=>{const emp=ch.dataset.emp;const ab=IMP.saldos[emp]&&IMP.saldos[emp].abertura;if(!ab)return;if(emp==='Kápodo'){OPEN_K=ab.val;try{localStorage.setItem(OPEN_K_KEY,String(OPEN_K));}catch(e){}}else{OPEN_E=ab.val;try{localStorage.setItem(OPEN_E_KEY,String(OPEN_E));}catch(e){}}saldosSet++;});
+ lastImport={removed:removedSnap,addedIds,ts:batch,empresa:Object.keys(porEmp).join(' + '),fileName:IMP.files.map(f=>f.name).join(' · '),months:[...mesesTodos]};
+ try{localStorage.setItem(IMPORT_KEY,JSON.stringify(lastImport));}catch(e){}
+ ensureProjections();const _bp=reconcilePaidProjections();save();updateUndoBtn();render();closeImport();
+ toast(`✓ ${addedIds.length} lançamento(s) importado(s) de ${Object.keys(porEmp).length} empresa(s) · ${removedSnap.length} substituído(s)`+(_bp>0?` · ${_bp} prevista(s) baixada(s)`:'')+(saldosSet?` · saldo inicial atualizado`:''),'s');}
 function undoImport(){if(!lastImport.addedIds||!lastImport.addedIds.length){toast('Nada para desfazer','e');return;}if(!confirm(`Desfazer a última importação?\n${lastImport.addedIds.length} importado(s) serão removidos e ${lastImport.removed.length} lançamento(s) anterior(es) restaurado(s).`))return;const addSet=new Set(lastImport.addedIds);DATA=DATA.filter(t=>!addSet.has(t.id));(lastImport.removed||[]).forEach(t=>{refreshDerivedFields(t);DATA.push(t);});lastImport={removed:[],addedIds:[],ts:null};try{localStorage.removeItem(IMPORT_KEY);}catch(e){}save();updateUndoBtn();render();toast('✓ Importação desfeita','s');}
 function updateUndoBtn(){const b=document.getElementById('btnUndoImp');if(b)b.style.display=(lastImport.addedIds&&lastImport.addedIds.length)?'':'none';}
 function applyExtratoSeed(){let _already=false;try{_already=!!localStorage.getItem(EXTRATO_FLAG);}catch(e){}if(_already&&DATA.length>0)return false;
@@ -971,8 +1037,8 @@ document.querySelectorAll('#iSeg .sgb').forEach(b=>b.addEventListener('click',()
 document.getElementById('iDrop').addEventListener('click',()=>document.getElementById('csvInput').click());
 document.getElementById('iDrop').addEventListener('dragover',e=>{e.preventDefault();document.getElementById('iDrop').classList.add('has');});
 document.getElementById('iDrop').addEventListener('dragleave',()=>{if(!IMP.rows.length)document.getElementById('iDrop').classList.remove('has');});
-document.getElementById('iDrop').addEventListener('drop',e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f)onCsvChosen(f);});
-document.getElementById('csvInput').addEventListener('change',e=>{if(e.target.files[0])onCsvChosen(e.target.files[0]);e.target.value='';});
+document.getElementById('iDrop').addEventListener('drop',e=>{e.preventDefault();[...e.dataTransfer.files].forEach(f=>onCsvChosen(f));});
+document.getElementById('csvInput').addEventListener('change',e=>{[...e.target.files].forEach(f=>onCsvChosen(f));e.target.value='';});
 document.getElementById('iCons').addEventListener('change',buildImportPreview);
 document.getElementById('iSkipInt').addEventListener('change',buildImportPreview);
 document.getElementById('iAll').addEventListener('change',e=>{const v=e.target.checked;IMP.display.forEach(r=>r.include=v);renderImportTable();});
