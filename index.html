@@ -515,6 +515,8 @@ table.bktbl tbody tr.bkrev td{background:rgba(214,158,46,.12)}
 <a class="nv" href="#sec-prev"><svg class="ic" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg> Previsões futuras</a>
 <a class="nv" href="#sec-hist"><svg class="ic" viewBox="0 0 24 24"><path d="M5 20V10M11 20V4M17 20v-7M2 20h20"/></svg> Consolidado</a>
 <a class="nv" href="#sec-blocos"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg> Blocos</a>
+<a class="nv" href="#sec-socios"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5M15.5 19c0-2 1.6-3.4 3.5-3.4s2.9 1.4 2.9 3.4"/></svg> Sócios</a>
+
 </nav>
 <div class="sdiv">Ações</div>
 <div class="sacts">
@@ -595,6 +597,14 @@ table.bktbl tbody tr.bkrev td{background:rgba(214,158,46,.12)}
 <div class="charts three" style="margin-bottom:8px"><div><div class="bkh">Despesas + dividendos por bloco</div><div id="bkChartDes"></div></div><div><div class="bkh">Receitas por bloco</div><div id="bkChartRec"></div></div><div><div class="bkh">Distribuição de lucros por sócio</div><div id="bkChartSoc"></div></div></div>
 <div class="bkcards" id="bkCards"></div>
 <div id="bkDetail"></div>
+</section>
+<section class="card" id="sec-socios" style="margin-bottom:24px">
+<div class="ch"><h3 class="ct"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5M15.5 19c0-2 1.6-3.4 3.5-3.4s2.9 1.4 2.9 3.4"/></svg> Distribuição de lucros — proporção entre os sócios</h3><div class="cs" id="scSub">—</div></div>
+<div class="cc">
+<div id="scOrd"></div>
+<div id="scUsu" style="margin-top:20px"></div>
+<div id="scNota" style="margin-top:12px;font-size:11px;color:var(--muted);line-height:1.6"></div>
+</div>
 </section>
 <section class="tcard">
 <div class="th"><div><h3 class="ct">Lançamentos</h3><div class="cs" id="tcnt">—</div></div><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><div class="tmonth"><span style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em">Mês</span><select id="tMonth"></select></div><div class="ts"><input type="text" id="srch" placeholder="Buscar..."></div></div></div>
@@ -837,7 +847,122 @@ if(grouped){const byYM={};sd.forEach(t=>{const k=t.ano*100+t.mes;(byYM[k]=byYM[k
 function forecast(){const empF=t=>S.empresa==='all'||t.empresa===S.empresa;const curStart=`${curY}-${String(curM).padStart(2,'0')}-01`;let saldo=(S.empresa==='Kápodo'?OPEN_K:(S.empresa==='EMTRES'?OPEN_E:OPEN_K+OPEN_E));DATA.forEach(t=>{if(!empF(t))return;if(t.status!=='Realizado')return;const ref=t.dataPagto||t.data;if(ref>=OPEN_ANCHOR&&ref<curStart)saldo+=valDir(t)*t.valor;});{const inC=DATA.filter(t=>t.ano===curY&&t.mes===curM&&empF(t)&&ativo(t));saldo+=sum(inC.filter(t=>t.tipo==='Receita'),t=>t.valor)-sum(inC.filter(t=>t.tipo==='Despesa'),t=>t.valor)-sum(inC.filter(t=>t.tipo==='Dividendo'),t=>t.valor)+sum(inC.filter(t=>t.tipo==='Transferência'),t=>valDir(t)*t.valor);}const maxYM=DATA.reduce((mx,t)=>Math.max(mx,t.ano*100+t.mes),curY*100+curM);let y=curY,m=curM+1;if(m>12){m=1;y++;}const lim=FH==='all'?999:+FH;const rows=[];for(let i=0;i<lim;i++){if(y*100+m>maxYM)break;const inM=DATA.filter(t=>t.ano===y&&t.mes===m&&empF(t)&&ativo(t));const rec=sum(inM.filter(t=>t.tipo==='Receita'),t=>t.valor);const des=sum(inM.filter(t=>t.tipo==='Despesa'),t=>t.valor);const dv=sum(inM.filter(t=>t.tipo==='Dividendo'),t=>t.valor);const txf=sum(inM.filter(t=>t.tipo==='Transferência'),t=>valDir(t)*t.valor);const ini=saldo;const fim=ini+rec-des-dv+txf;saldo=fim;rows.push({y,m,ini,rec,des,dv,fim});m++;if(m>12){m=1;y++;}}const empLbl=S.empresa==='all'?'Kápodo + EMTRES':S.empresa;document.getElementById('fSub').textContent=rows.length?`A partir de ${MESES_FULL[rows[0].m-1]}/${rows[0].y} · ${empLbl} · parte do saldo projetado do fim do mês atual (${fm2(rows[0].ini)}) · transferências internas incluídas no saldo · clique no mês para ver o detalhe`:`Sem projeções à frente · ${empLbl}`;document.getElementById('fBody').innerHTML=rows.map(r=>`<tr class="frow" data-y="${r.y}" data-m="${r.m}" title="Ver lançamentos previstos deste mês"><td>${MESES[r.m-1]}/${String(r.y).slice(2)}</td><td>${fm2(r.ini)}</td><td class="cr">${r.rec>0?fm2(r.rec):'—'}</td><td class="db">${r.des>0?fm2(r.des):'—'}</td><td>${r.dv>0?fm2(r.dv):'—'}</td><td class="sf ${r.fim<0?'neg':''}">${fm2(r.fim)}</td></tr>`).join('');document.querySelectorAll('#fBody tr.frow').forEach(tr=>tr.addEventListener('click',()=>openForecastMonth(+tr.dataset.y,+tr.dataset.m)));const hn=document.getElementById('fHor');hn.innerHTML=[['6','6 meses'],['12','12 meses'],['24','24 meses'],['all','Tudo']].map(p=>`<button class="bm${FH===p[0]?' on':''}" data-h="${p[0]}">${p[1]}</button>`).join('');hn.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{FH=b.dataset.h;forecast();}));}
 function saldoHoje(emp){const empF=t=>emp==='all'||t.empresa===emp;let s=emp==='Kápodo'?OPEN_K:(emp==='EMTRES'?OPEN_E:OPEN_K+OPEN_E);DATA.forEach(t=>{if(!empF(t))return;if(t.status!=='Realizado')return;const ref=t.dataPagto||t.data;if(ref>=OPEN_ANCHOR&&ref<=TODAY_ISO)s+=valDir(t)*t.valor;});return s;}
 function renderToday(){const el=document.getElementById('bToday');if(!el)return;const k=saldoHoje('Kápodo'),e=saldoHoje('EMTRES');document.getElementById('todDate').textContent=`posição em ${fd(TODAY_ISO)} · soma só o que já foi realizado/baixado até hoje`;const setv=(id,v)=>{const x=document.getElementById(id);x.textContent=fm2(v);x.classList.toggle('neg',v<0);};setv('todK',k);setv('todE',e);setv('todT',k+e);}
-function render(){ensureBlocos();renderYearFilter();kpis();cashflow();renderToday();pending();receitas();forecast();dM();dC();tbl();renderBlocoCharts();renderBlocos();}
+
+/* ===== Distribuição de lucros: proporção entre sócios e usufrutuários ===== */
+const SOC_PCT={'Kelly Tres':0.40,'Anderson Tres':0.40,'Alex Mendes Dias':0.15,'Isabela Tres Mendes':0.05};
+const PN_FIXO_MES={2025:15000,2026:15750,2027:16380.38,2028:17117.49};   /* por usufrutuário, por mês */
+const PN_FIXO_INICIO='2025-09';                                          /* 1º mês devido */
+const RESERVA_DISPONIVEL=8076840.76;   /* reservas ainda disponíveis para distribuir */
+const BASE_PROTEGIDA=5144088.66;       /* parcela amparada pela janela da Lei 15.270/2025 */
+const PN_UNICO_POR_USU=1000000;                                          /* metade dos R$ 2.000.000 */
+const USUFRUTUARIOS=['Moacir Tres','Eli Crestani Tres'];
+
+function pagamentosA(nome){
+  const re=new RegExp('\\b'+nome.split(' ')[0]+'\\b','i');
+  return DATA.filter(t=>t.status==='Realizado'&&!t.cancelado&&t.tipo!=='Transferência'&&t.tipo!=='Receita'
+    &&re.test(t.descricao||'')&&!/recebid[oa]\\s+de/i.test(t.descricao||''))
+    .sort((a,b)=>a.data.localeCompare(b.data));
+}
+function mesesAte(ini,fim){const out=[];let[y,m]=ini.split('-').map(Number);const[fy,fm]=fim.split('-').map(Number);
+  while(y*100+m<=fy*100+fm){out.push(`${y}-${String(m).padStart(2,'0')}`);m++;if(m>12){m=1;y++;}}return out;}
+
+function renderSocios(){
+  /* ---------- 1 · ordinaristas ---------- */
+  const nomes=Object.keys(SOC_PCT);
+  const rec={};nomes.forEach(n=>rec[n]=sum(pagamentosA(n),t=>t.valor));
+  const total=nomes.reduce((a,n)=>a+rec[n],0);
+  /* nível de equalização: o sócio mais adiantado define o total necessário para ninguém devolver */
+  const nivel=Math.max(...nomes.map(n=>rec[n]/SOC_PCT[n]));
+  const anos=[...new Set(DATA.filter(t=>t.status==='Realizado').map(t=>t.data.slice(0,4)))].sort();
+  const porAno={};nomes.forEach(n=>{porAno[n]={};pagamentosA(n).forEach(t=>{const y=t.data.slice(0,4);porAno[n][y]=(porAno[n][y]||0)+t.valor;});});
+  const anosUsados=anos.filter(y=>nomes.some(n=>porAno[n][y]));
+  const cicloTotal=total+RESERVA_DISPONIVEL;
+  const linhas=nomes.map(n=>{
+    const prop=total*SOC_PCT[n], dif=rec[n]-prop, equal=nivel*SOC_PCT[n]-rec[n];
+    const alvo=cicloTotal*SOC_PCT[n];
+    return{n,pct:SOC_PCT[n],recebido:rec[n],prop,dif,equal,alvo,aReceber:alvo-rec[n],efetivo:total?rec[n]/total:0,ano:porAno[n]};
+  });
+  const extra=linhas.reduce((a,l)=>a+l.equal,0);
+  const protegidoRestante=Math.max(0,BASE_PROTEGIDA-total);
+  document.getElementById('scSub').textContent=`${fm2(total)} já distribuídos · ${fm2(RESERVA_DISPONIVEL)} em reservas a distribuir · ${fm2(protegidoRestante)} ainda dentro da janela`;
+  document.getElementById('scOrd').innerHTML=`
+  <table class="imp" style="width:100%">
+   <thead><tr><th>Sócio</th><th style="text-align:right">%</th>${anosUsados.map(y=>`<th style="text-align:right">${y}</th>`).join('')}<th style="text-align:right">Recebido</th><th style="text-align:right">% efetivo</th><th style="text-align:right">Proporcional ao distribuído</th><th style="text-align:right">Diferença</th><th style="text-align:right">Falta p/ equalizar</th></tr></thead>
+   <tbody>${linhas.map(l=>`<tr>
+     <td>${esc(l.n)}</td>
+     <td style="text-align:right">${(l.pct*100).toFixed(0)}%</td>
+     ${anosUsados.map(y=>`<td style="text-align:right">${l.ano[y]?fm2(l.ano[y]):'—'}</td>`).join('')}
+     <td style="text-align:right;font-weight:600">${fm2(l.recebido)}</td>
+     <td style="text-align:right;color:${Math.abs(l.efetivo-l.pct)>0.02?'var(--r600)':'var(--muted)'}">${(l.efetivo*100).toFixed(1)}%</td>
+     <td style="text-align:right">${fm2(l.prop)}</td>
+     <td style="text-align:right;font-weight:600;color:${l.dif>=0?'var(--g600)':'var(--r600)'}">${l.dif>=0?'+':'−'}${fm2(Math.abs(l.dif))}</td>
+     <td style="text-align:right">${l.equal>0.005?fm2(l.equal):'—'}</td></tr>`).join('')}
+    <tr style="font-weight:700;border-top:2px solid var(--line)">
+     <td>Total</td><td></td>${anosUsados.map(y=>`<td style="text-align:right">${fm2(nomes.reduce((a,n)=>a+(porAno[n][y]||0),0))}</td>`).join('')}<td style="text-align:right">${fm2(total)}</td><td></td><td style="text-align:right">${fm2(total)}</td><td></td><td style="text-align:right">${fm2(extra)}</td></tr>
+   </tbody></table>
+
+  <div class="bkh" style="margin:18px 0 6px">Rateio das reservas disponíveis — ${fm2(RESERVA_DISPONIVEL)}</div>
+  <table class="imp" style="width:100%">
+   <thead><tr><th>Sócio</th><th style="text-align:right">Alvo do ciclo (${fm2(cicloTotal)})</th><th style="text-align:right">Já recebido</th><th style="text-align:right">A receber desta reserva</th><th style="text-align:right">% da reserva</th></tr></thead>
+   <tbody>${linhas.map(l=>`<tr>
+     <td>${esc(l.n)} <span class="cs">· ${(l.pct*100).toFixed(0)}%</span></td>
+     <td style="text-align:right">${fm2(l.alvo)}</td>
+     <td style="text-align:right">${fm2(l.recebido)}</td>
+     <td style="text-align:right;font-weight:600;color:${l.aReceber>=0?'var(--g600)':'var(--r600)'}">${l.aReceber>=0?'':'−'}${fm2(Math.abs(l.aReceber))}</td>
+     <td style="text-align:right">${(l.aReceber/RESERVA_DISPONIVEL*100).toFixed(1)}%</td></tr>`).join('')}
+    <tr style="font-weight:700;border-top:2px solid var(--line)">
+     <td>Total</td><td style="text-align:right">${fm2(cicloTotal)}</td><td style="text-align:right">${fm2(total)}</td><td style="text-align:right">${fm2(linhas.reduce((a,l)=>a+l.aReceber,0))}</td><td style="text-align:right">100,0%</td></tr>
+   </tbody></table>`;
+
+  /* ---------- 2 · usufrutuários: dividendo fixo × parcela dos R$ 2 milhões ---------- */
+  const hoje=new Date(),ymAtual=`${hoje.getFullYear()}-${String(hoje.getMonth()+1).padStart(2,'0')}`;
+  const meses=mesesAte(PN_FIXO_INICIO,ymAtual);
+  const devidoFixo=meses.reduce((a,ym)=>a+(PN_FIXO_MES[+ym.slice(0,4)]||0),0);
+  const us=USUFRUTUARIOS.map(n=>{
+    const pgs=pagamentosA(n);const pago=sum(pgs,t=>t.valor);
+    /* imputação cronológica: cada pagamento cobre primeiro o dividendo fixo em aberto */
+    let fixo=0,unico=0,saldoFixo=0,i=0;
+    meses.forEach(ym=>{saldoFixo+=(PN_FIXO_MES[+ym.slice(0,4)]||0);
+      while(i<pgs.length&&pgs[i].data.slice(0,7)<=ym){const v=pgs[i].valor;const ao=Math.min(v,saldoFixo);
+        fixo+=ao;saldoFixo-=ao;unico+=v-ao;i++;}});
+    while(i<pgs.length){unico+=pgs[i].valor;i++;}
+    return{n,pago,fixo,atraso:Math.max(0,devidoFixo-fixo),unico:Math.min(unico,PN_UNICO_POR_USU),
+           excedente:Math.max(0,unico-PN_UNICO_POR_USU),falta:Math.max(0,PN_UNICO_POR_USU-unico),nPg:pgs.length};
+  });
+  const anosU=[...new Set(USUFRUTUARIOS.flatMap(n=>pagamentosA(n).map(t=>t.data.slice(0,4))))].sort();
+  const pagoAnoU={};USUFRUTUARIOS.forEach(n=>{pagoAnoU[n]={};pagamentosA(n).forEach(t=>{const y=t.data.slice(0,4);pagoAnoU[n][y]=(pagoAnoU[n][y]||0)+t.valor;});});
+  document.getElementById('scUsu').innerHTML=`
+  <div class="bkh" style="margin-bottom:6px">Usufrutuários das preferenciais — dividendo fixo × dividendo único de R$ 2.000.000,00</div>
+  <table class="imp" style="width:100%">
+   <thead><tr><th>Usufrutuário</th>${anosU.map(y=>`<th style="text-align:right">${y}</th>`).join('')}<th style="text-align:right">Total pago</th><th style="text-align:right">Dividendo fixo devido</th><th style="text-align:right">Fixo pago</th><th style="text-align:right">Fixo em atraso</th><th style="text-align:right">Dividendo único pago</th><th style="text-align:right">Falta do único</th></tr></thead>
+   <tbody>${us.map(u=>`<tr>
+     <td>${esc(u.n)} <span class="cs">· ${u.nPg} pagamento(s)</span></td>
+     ${anosU.map(y=>`<td style="text-align:right">${pagoAnoU[u.n][y]?fm2(pagoAnoU[u.n][y]):'—'}</td>`).join('')}
+     <td style="text-align:right;font-weight:600">${fm2(u.pago)}</td>
+     <td style="text-align:right">${fm2(devidoFixo)}</td>
+     <td style="text-align:right">${fm2(u.fixo)}</td>
+     <td style="text-align:right;color:${u.atraso>0.005?'var(--r600)':'var(--muted)'}">${u.atraso>0.005?fm2(u.atraso):'—'}</td>
+     <td style="text-align:right">${fm2(u.unico)} <span class="cs">(${(u.unico/PN_UNICO_POR_USU*100).toFixed(1)}%)</span></td>
+     <td style="text-align:right;font-weight:600">${fm2(u.falta)}</td></tr>`).join('')}
+    <tr style="font-weight:700;border-top:2px solid var(--line)">
+     <td>Total</td>${anosU.map(y=>`<td style="text-align:right">${fm2(USUFRUTUARIOS.reduce((a,n)=>a+(pagoAnoU[n][y]||0),0))}</td>`).join('')}<td style="text-align:right">${fm2(us.reduce((a,u)=>a+u.pago,0))}</td>
+     <td style="text-align:right">${fm2(devidoFixo*2)}</td>
+     <td style="text-align:right">${fm2(us.reduce((a,u)=>a+u.fixo,0))}</td>
+     <td style="text-align:right">${fm2(us.reduce((a,u)=>a+u.atraso,0))}</td>
+     <td style="text-align:right">${fm2(us.reduce((a,u)=>a+u.unico,0))} <span class="cs">de ${fm2(PN_UNICO_POR_USU*2)}</span></td>
+     <td style="text-align:right">${fm2(us.reduce((a,u)=>a+u.falta,0))}</td></tr>
+   </tbody></table>`;
+
+  document.getElementById('scNota').innerHTML=`
+   <b>Como o quadro é montado.</b> Conta todo pagamento realizado a cada pessoa, nas duas empresas, exceto transferências.
+   <b>Diferença</b> compara o recebido com a fatia proporcional do que já foi distribuído; <b>falta para equalizar</b> é quanto cada um ainda receberia para todos chegarem ao nível do sócio mais adiantado, sem ninguém devolver.
+   Nos usufrutuários, cada pagamento quita primeiro o <b>dividendo fixo</b> em aberto (${fm2(PN_FIXO_MES[2026])}/mês por usufrutuário em 2026, devido desde ${PN_FIXO_INICIO.split('-').reverse().join('/')}, art. 8º do Estatuto e cl. 2.8 do Acordo); o que passa disso é imputado ao <b>dividendo único</b> de R$ 1.000.000,00 para cada um.
+   <br><b>Reservas.</b> O rateio considera ${fm2(RESERVA_DISPONIVEL)} ainda disponíveis: o alvo de cada sócio é a sua fatia sobre o ciclo inteiro (o já distribuído mais a reserva), e a coluna <b>a receber</b> é o que falta para chegar lá — as parcelas somam exatamente a reserva.
+   Da base amparada pela janela da Lei 15.270/2025 (${fm2(BASE_PROTEGIDA)}) restam <b>${fm2(protegidoRestante)}</b>; o que exceder isso é distribuição de resultado posterior, sujeita ao IRRF de 10% acima de R$ 50.000,00/mês por pessoa e à tributação mínima.
+   Os parâmetros ficam em <code>SOC_PCT</code>, <code>PN_FIXO_MES</code>, <code>PN_FIXO_INICIO</code>, <code>RESERVA_DISPONIVEL</code> e <code>BASE_PROTEGIDA</code>, no início do script.`;
+}
+
+function render(){ensureBlocos();renderYearFilter();kpis();cashflow();renderToday();pending();receitas();forecast();dM();dC();tbl();renderBlocoCharts();renderBlocos();renderSocios();}
 function populateCats(tipo){const sel=document.getElementById('f-cat');const opts=(CAT_BY_TIPO[tipo]||[]).map(c=>`<option value="${esc(c)}">${esc(c)}</option>`);opts.push('<option value="__new__">➕ Criar nova categoria…</option>');sel.innerHTML=opts.join('');document.getElementById('f-grp').value=GRUPO_BY_CAT[sel.value]||'';_prevCat=sel.value;}
 let _prevCat=null;
 function openNewCat(){const tipo=document.getElementById('f-tipo').value;const grpSel=document.getElementById('newCatGrp');grpSel.innerHTML=P.G.map(g=>`<option value="${esc(g)}">${esc(g)}</option>`).join('');const defGrp={'Receita':'Receita Diversa','Despesa':'Despesa Diversa','Dividendo':'Distribuição','Transferência':'Movimentação Interna'}[tipo]||P.G[0];grpSel.value=defGrp;document.getElementById('newCatName').value='';document.getElementById('newCatBox').classList.remove('hid');setTimeout(()=>document.getElementById('newCatName').focus(),30);}
