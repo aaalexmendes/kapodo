@@ -216,6 +216,15 @@ tbody tr:hover{background:var(--n50)}
 .imp-warn{background:var(--a100);border:1px solid #F0D58A;color:#7A5A12;border-radius:8px;padding:10px 12px;font-size:12px;margin-bottom:12px;line-height:1.5}
 .imp-tblwrap{max-height:46vh;overflow:auto;border:1px solid var(--line);border-radius:8px}
 #sec-socios .scbody{position:relative}
+#sec-socios td.scano{cursor:pointer;text-decoration:underline dotted var(--muted);text-underline-offset:3px}
+#sec-socios td.scano:hover{background:var(--n100);color:var(--n700)}
+.scdrow{display:grid;grid-template-columns:78px 1fr auto;gap:10px;align-items:start;padding:10px 20px;border-bottom:1px solid var(--line)}
+.scdd{font-weight:700;font-variant-numeric:tabular-nums;color:var(--n700);font-size:13px}
+.scdd small{display:block;font-weight:400;color:var(--muted);font-size:10.5px}
+.scdesc{font-size:12px;color:var(--ink);min-width:0;overflow-wrap:anywhere}
+.scdv{font-weight:700;color:var(--a600);white-space:nowrap;font-variant-numeric:tabular-nums;font-size:13px}
+.scdtot{display:flex;justify-content:space-between;padding:12px 20px;font-weight:700;background:var(--n50);border-top:2px solid var(--line)}
+.scdyr{padding:8px 20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--n50);border-bottom:1px solid var(--line)}
 #sec-socios .sctbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin-top:4px}
 #sec-socios table.imp{min-width:860px}
 #sec-socios table.imp th,#sec-socios table.imp td{padding:7px 10px;white-space:nowrap;border-bottom:1px solid var(--line)}
@@ -540,7 +549,7 @@ table.bktbl tbody tr.bkrev td{background:rgba(214,158,46,.12)}
 <div class="sdiv">Aparência</div>
 <div class="tsw" id="tsw"><button class="tsb" data-th="light" type="button"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg> Claro</button><button class="tsb" data-th="dark" type="button"><svg class="ic" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg> Escuro</button></div>
 <button class="cloudind off" id="btnCloud" title="Configurar sincronização com JSONbin"><span class="dot"></span><span id="cloudTxt">Sync desativado</span></button>
-<div class="sver" id="sVer" title="v1.5 (26/10/2026): importa os dois extratos de uma vez, com a empresa identificada por lançamento; saldo de abertura do extrato vira saldo inicial; bloco de Lançamentos rola até o topo.&#10;v1.4 (16/10/2026): sinal do lançamento deduzido pela variação do saldo (débitos deixaram de entrar como receita), leitura do saldo de abertura e de fechamento, descrição sem &quot;R$&quot; solto.&#10;v1.3 (23/09/2026): venda da Fazenda Mateira (Celso Baú, R$ 25 mi em 4 parcelas), corretagem, SIMCAR/PRA, Reserva Legal, ITCD mensal, retiradas de Moacir e Eli, tributos da venda (PIS/COFINS/IRPJ/CSLL/IBS-CBS) — projeções até jan/2029.&#10;v1.2 (08/09/2026): catálogo por blocos (seção Blocos), campo bloco + ⚑ revisar em cada lançamento, extratos até 07/09/2026, categoria Cisão (Crestani); Vipinho = Itapiranga, JR Imobiliária = corretagem, Funilaria/José Valcir = serviços de terceiros nos imóveis.&#10;v1.1 (12/08/2026): duplicar lançamento · impostos detalhados (DARF) · nova categoria no import · registro de &quot;não aconteceu&quot; · contas a vencer em vermelho.&#10;v1.0 (18/07/2026): base com extratos completos."><span class="svn" id="svnTxt">Versão 1.6</span><span class="svd" id="svdTxt">29/10/2026</span></div>
+<div class="sver" id="sVer" title="v1.7 (31/10/2026): em Sócios, clicar no valor de um ano (ou no total) abre painel lateral com a data de cada pagamento àquele sócio/usufrutuário.&#10;v1.5 (26/10/2026): importa os dois extratos de uma vez, com a empresa identificada por lançamento; saldo de abertura do extrato vira saldo inicial; bloco de Lançamentos rola até o topo.&#10;v1.4 (16/10/2026): sinal do lançamento deduzido pela variação do saldo (débitos deixaram de entrar como receita), leitura do saldo de abertura e de fechamento, descrição sem &quot;R$&quot; solto.&#10;v1.3 (23/09/2026): venda da Fazenda Mateira (Celso Baú, R$ 25 mi em 4 parcelas), corretagem, SIMCAR/PRA, Reserva Legal, ITCD mensal, retiradas de Moacir e Eli, tributos da venda (PIS/COFINS/IRPJ/CSLL/IBS-CBS) — projeções até jan/2029.&#10;v1.2 (08/09/2026): catálogo por blocos (seção Blocos), campo bloco + ⚑ revisar em cada lançamento, extratos até 07/09/2026, categoria Cisão (Crestani); Vipinho = Itapiranga, JR Imobiliária = corretagem, Funilaria/José Valcir = serviços de terceiros nos imóveis.&#10;v1.1 (12/08/2026): duplicar lançamento · impostos detalhados (DARF) · nova categoria no import · registro de &quot;não aconteceu&quot; · contas a vencer em vermelho.&#10;v1.0 (18/07/2026): base com extratos completos."><span class="svn" id="svnTxt">Versão 1.7</span><span class="svd" id="svdTxt">31/10/2026</span></div>
 </aside>
 <main class="main">
 <header class="header"><div><h1>Visão financeira <span class="tag k">Kápodo</span><span class="tag e">EMTRES</span></h1><div class="sub">Gestão de caixa das duas empresas · sync via JSONbin</div></div></header>
@@ -805,7 +814,7 @@ const TODAY_ISO=`${curY}-${String(curM).padStart(2,'0')}-${String(NOW.getDate())
 let BM={year:curY,month:curM};
 let FH='12';
 let S={year:String(curY),status:'all',empresa:'all',sortBy:'data',sortDir:'desc',search:'',tableMonth:'all'};
-const APP_VER={v:'1.6',d:'2026-10-29',dbr:'29/10/2026'};
+const APP_VER={v:'1.7',d:'2026-10-31',dbr:'31/10/2026'};
 let CH={};let editId=null;let pushTimer=null;let pendingDirty=false;let lastSaveTs=null;
 function fmtHM(d){if(!d)return'';const p=n=>String(n).padStart(2,'0');return p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());}
 const IMPORT_KEY='kapodo_last_import_v1';
@@ -931,6 +940,27 @@ function renderSimulacao(){
      <td style="text-align:right">${fm2(r.totalRec+r.X)}</td><td></td></tr>
    </tbody></table></div>`;
 }
+/* Painel lateral: datas de cada pagamento a um sócio/usufrutuário no ano clicado.
+   Usa exatamente o mesmo filtro (pagamentosA) e o mesmo ano (t.data) que somam a célula. */
+function openSocioPagamentos(nome,ano){
+  const todos=pagamentosA(nome);
+  const lst=todos.filter(t=>ano==='all'||t.data.slice(0,4)===ano)
+    .sort((a,b)=>(a.dataPagto||a.data).localeCompare(b.dataPagto||b.data));
+  const tot=sum(lst,t=>t.valor);
+  const porEmp={};lst.forEach(t=>{porEmp[t.empresa]=(porEmp[t.empresa]||0)+t.valor;});
+  document.getElementById('fcdTitle').textContent=nome;
+  document.getElementById('fcdSub').textContent=`${ano==='all'?'Todos os anos':'Ano '+ano} · ${lst.length} pagamento${lst.length===1?'':'s'} · ${fm2(tot)}`+
+    (Object.keys(porEmp).length>1?' · '+Object.keys(porEmp).map(e=>e+' '+fm2(porEmp[e])).join(' · '):'');
+  const row=t=>{const dp=t.dataPagto||t.data;const comp=(t.dataPagto&&t.dataPagto!==t.data)?`<small>competência ${fd(t.data)}</small>`:'';
+    return `<div class="scdrow"><div class="scdd">${fd(dp)}${comp}</div><div class="scdesc"><span class="pill ${empCls(t.empresa)}" style="font-size:9px;padding:1px 5px">${esc(t.empresa)}</span> ${esc(t.descricao)}${t.obs&&!/^Importado/i.test(t.obs)?`<div class="fcdc">${esc(t.obs)}</div>`:''}</div><div class="scdv">${fm2(t.valor)}</div></div>`;};
+  let html='';
+  if(ano==='all'){const anos=[...new Set(lst.map(t=>t.data.slice(0,4)))].sort();
+    anos.forEach(y=>{const g=lst.filter(t=>t.data.slice(0,4)===y);html+=`<div class="scdyr">${y} · ${fm2(sum(g,t=>t.valor))}</div>`+g.map(row).join('');});}
+  else html=lst.map(row).join('');
+  document.getElementById('fcdBody').innerHTML=(lst.length?html+`<div class="scdtot"><span>Total</span><span>${fm2(tot)}</span></div>`:'<div class="fcdempty">Nenhum pagamento neste período.</div>');
+  document.getElementById('fcdBody').style.padding='0';
+  document.getElementById('fcDrawer').classList.remove('hid');
+}
 function renderSocios(){
   /* ---------- 1 · ordinaristas ---------- */
   const nomes=Object.keys(SOC_PCT);
@@ -956,8 +986,8 @@ function renderSocios(){
    <tbody>${linhas.map(l=>`<tr>
      <td>${esc(l.n)}</td>
      <td style="text-align:right">${(l.pct*100).toFixed(0)}%</td>
-     ${anosUsados.map(y=>`<td style="text-align:right">${l.ano[y]?fm2(l.ano[y]):'—'}</td>`).join('')}
-     <td style="text-align:right;font-weight:600">${fm2(l.recebido)}</td>
+     ${anosUsados.map(y=>l.ano[y]?`<td class="scano" data-n="${esc(l.n)}" data-y="${y}" title="Ver as datas dos pagamentos de ${y}" style="text-align:right">${fm2(l.ano[y])}</td>`:`<td style="text-align:right">—</td>`).join('')}
+     <td${l.recebido>0?` class="scano" data-n="${esc(l.n)}" data-y="all" title="Ver todos os pagamentos"`:''} style="text-align:right;font-weight:600">${fm2(l.recebido)}</td>
      <td style="text-align:right;color:${Math.abs(l.efetivo-l.pct)>0.02?'var(--r600)':'var(--muted)'}">${(l.efetivo*100).toFixed(1)}%</td>
      <td style="text-align:right">${fm2(l.prop)}</td>
      <td style="text-align:right;font-weight:600;color:${l.dif>=0?'var(--g600)':'var(--r600)'}">${l.dif>=0?'+':'−'}${fm2(Math.abs(l.dif))}</td>
@@ -1002,8 +1032,8 @@ function renderSocios(){
    <thead><tr><th>Usufrutuário</th>${anosU.map(y=>`<th style="text-align:right">${y}</th>`).join('')}<th style="text-align:right">Total pago</th><th style="text-align:right">Dividendo fixo devido</th><th style="text-align:right">Fixo pago</th><th style="text-align:right">Fixo em atraso</th><th style="text-align:right">Dividendo único pago</th><th style="text-align:right">Falta do único</th></tr></thead>
    <tbody>${us.map(u=>`<tr>
      <td>${esc(u.n)} <span class="cs">· ${u.nPg} pagamento(s)</span></td>
-     ${anosU.map(y=>`<td style="text-align:right">${pagoAnoU[u.n][y]?fm2(pagoAnoU[u.n][y]):'—'}</td>`).join('')}
-     <td style="text-align:right;font-weight:600">${fm2(u.pago)}</td>
+     ${anosU.map(y=>pagoAnoU[u.n][y]?`<td class="scano" data-n="${esc(u.n)}" data-y="${y}" title="Ver as datas dos pagamentos de ${y}" style="text-align:right">${fm2(pagoAnoU[u.n][y])}</td>`:`<td style="text-align:right">—</td>`).join('')}
+     <td${u.pago>0?` class="scano" data-n="${esc(u.n)}" data-y="all" title="Ver todos os pagamentos"`:''} style="text-align:right;font-weight:600">${fm2(u.pago)}</td>
      <td style="text-align:right">${fm2(devidoFixo)}</td>
      <td style="text-align:right">${fm2(u.fixo)}</td>
      <td style="text-align:right;color:${u.atraso>0.005?'var(--r600)':'var(--muted)'}">${u.atraso>0.005?fm2(u.atraso):'—'}</td>
@@ -1034,7 +1064,7 @@ function openNewCat(){const tipo=document.getElementById('f-tipo').value;const g
 function closeNewCat(){document.getElementById('newCatBox').classList.add('hid');}
 function cancelNewCat(){closeNewCat();const sel=document.getElementById('f-cat');const tipo=document.getElementById('f-tipo').value;const first=(CAT_BY_TIPO[tipo]||[])[0]||'';sel.value=_prevCat&&_prevCat!=='__new__'?_prevCat:first;if(!sel.value||sel.value==='__new__')sel.value=first;document.getElementById('f-grp').value=GRUPO_BY_CAT[sel.value]||'';_prevCat=sel.value;}
 function addNewCat(){const tipo=document.getElementById('f-tipo').value;const nome=document.getElementById('newCatName').value.trim();const grupo=document.getElementById('newCatGrp').value;if(!nome){toast('Informe o nome da categoria','e');return;}if((CAT_BY_TIPO[tipo]||[]).includes(nome)){populateCats(tipo);document.getElementById('f-cat').value=nome;document.getElementById('f-grp').value=GRUPO_BY_CAT[nome]||grupo;_prevCat=nome;closeNewCat();toast('Categoria já existe — selecionada','s');return;}CUSTOM_CATS[tipo]=CUSTOM_CATS[tipo]||[];CUSTOM_CATS[tipo].push({nome,grupo});try{localStorage.setItem(CUSTOMCAT_KEY,JSON.stringify(CUSTOM_CATS));}catch(e){}schedulePush();mergeCustomCats();populateCats(tipo);document.getElementById('f-cat').value=nome;document.getElementById('f-grp').value=grupo;_prevCat=nome;closeNewCat();toast('✓ Categoria "'+nome+'" criada','s');}
-function openForecastMonth(y,m){const empF=t=>S.empresa==='all'||t.empresa===S.empresa;const inM=DATA.filter(t=>t.ano===y&&t.mes===m&&t.status==='Projetado'&&empF(t)&&ativo(t));const recs=inM.filter(t=>t.tipo==='Receita').sort((a,b)=>a.data.localeCompare(b.data));const desp=inM.filter(t=>t.tipo==='Despesa'||t.tipo==='Dividendo').sort((a,b)=>a.data.localeCompare(b.data));const totR=sum(recs,t=>t.valor),totD=sum(desp,t=>t.valor);const empLbl=S.empresa==='all'?'Kápodo + EMTRES':S.empresa;document.getElementById('fcdTitle').textContent='Previsto no mês';document.getElementById('fcdSub').textContent=`${MESES_FULL[m-1]}/${y} · ${empLbl} · entradas ${fm2(totR)} · saídas ${fm2(totD)}`;const rowH=(t,neg)=>`<div class="fcdrow"><div><div class="fcdd">${esc(t.descricao)}</div><div class="fcdc">${esc(t.categoria)} · ${esc(t.empresa)} · dia ${t.data.slice(8,10)}</div></div><div class="fcdv"${neg?'':' style="color:var(--g600)"'}>${fm2(t.valor)}</div></div>`;document.getElementById('fcdBody').innerHTML=(recs.length?`<div style="font-weight:700;color:var(--g600);font-size:12px;margin:4px 0 6px">▲ Entradas previstas</div>`+recs.map(t=>rowH(t,false)).join(''):'')+(desp.length?`<div style="font-weight:700;color:var(--r600);font-size:12px;margin:14px 0 6px">▼ Saídas previstas</div>`+desp.map(t=>rowH(t,true)).join(''):'')+((recs.length||desp.length)?'':'<div class="fcdempty">Nada previsto neste mês.</div>');document.getElementById('fcDrawer').classList.remove('hid');}
+function openForecastMonth(y,m){const empF=t=>S.empresa==='all'||t.empresa===S.empresa;const inM=DATA.filter(t=>t.ano===y&&t.mes===m&&t.status==='Projetado'&&empF(t)&&ativo(t));const recs=inM.filter(t=>t.tipo==='Receita').sort((a,b)=>a.data.localeCompare(b.data));const desp=inM.filter(t=>t.tipo==='Despesa'||t.tipo==='Dividendo').sort((a,b)=>a.data.localeCompare(b.data));const totR=sum(recs,t=>t.valor),totD=sum(desp,t=>t.valor);const empLbl=S.empresa==='all'?'Kápodo + EMTRES':S.empresa;document.getElementById('fcdBody').style.padding='';document.getElementById('fcdTitle').textContent='Previsto no mês';document.getElementById('fcdSub').textContent=`${MESES_FULL[m-1]}/${y} · ${empLbl} · entradas ${fm2(totR)} · saídas ${fm2(totD)}`;const rowH=(t,neg)=>`<div class="fcdrow"><div><div class="fcdd">${esc(t.descricao)}</div><div class="fcdc">${esc(t.categoria)} · ${esc(t.empresa)} · dia ${t.data.slice(8,10)}</div></div><div class="fcdv"${neg?'':' style="color:var(--g600)"'}>${fm2(t.valor)}</div></div>`;document.getElementById('fcdBody').innerHTML=(recs.length?`<div style="font-weight:700;color:var(--g600);font-size:12px;margin:4px 0 6px">▲ Entradas previstas</div>`+recs.map(t=>rowH(t,false)).join(''):'')+(desp.length?`<div style="font-weight:700;color:var(--r600);font-size:12px;margin:14px 0 6px">▼ Saídas previstas</div>`+desp.map(t=>rowH(t,true)).join(''):'')+((recs.length||desp.length)?'':'<div class="fcdempty">Nada previsto neste mês.</div>');document.getElementById('fcDrawer').classList.remove('hid');}
 function closeForecastDrawer(){document.getElementById('fcDrawer').classList.add('hid');}
 function applyProjDates(){let n=0;DATA.forEach(t=>{if(t.status!=='Projetado')return;if(t.obs==='plan-2026-09-23')return;let day=null;const d=(t.descricao||'').toLowerCase();if(/moacir/.test(d))day=2;else if(/contabil|bdrt/.test(d))day=5;else if(t.tipo==='Despesa'&&t.categoria==='Benefícios')day=6;else if(/casavitta|condom[ií]nio|sanepar/.test(d))day=10;else if(t.tipo==='Receita'&&t.categoria==='Aluguéis')day=12;else if(t.categoria==='Venda de Imóvel'&&/vipinho/i.test(t.descricao||''))day=20;else if(t.tipo==='Dividendo')day=20;else if(/trimestral/i.test(d))day=30;else if(t.tipo==='Despesa'&&/^Tributos/.test(t.categoria||''))day=25;if(day){const nd=t.data.slice(0,8)+String(day).padStart(2,'0');if(t.data!==nd){t.data=nd;n++;}}});return n;}
 /* Rede de segurança: reinjeta projeções faltantes sem duplicar nem apagar nada.
@@ -1254,6 +1284,7 @@ document.getElementById('laTipo').addEventListener('change',e=>{batchCatsFor(e.t
 ['laDesc','laVal','laDia','laMi','laN','laStatus'].forEach(id=>document.getElementById(id).addEventListener('input',laPreview));
 document.getElementById('laAdd').addEventListener('click',batchAdd);
 document.getElementById('fcdClose').addEventListener('click',closeForecastDrawer);
+document.getElementById('sec-socios').addEventListener('click',e=>{const td=e.target.closest('td.scano');if(td)openSocioPagamentos(td.dataset.n,td.dataset.y);});
 document.getElementById('fcDrawer').addEventListener('click',e=>{if(e.target.id==='fcDrawer')closeForecastDrawer();});
 document.getElementById('impModal').addEventListener('click',e=>{if(e.target.id==='impModal')closeImport();});
 document.getElementById('tMonth').addEventListener('change',e=>{S.tableMonth=e.target.value;tbl();});
@@ -1272,7 +1303,7 @@ document.getElementById('newCatCancel').addEventListener('click',cancelNewCat);
 document.getElementById('newCatName').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addNewCat();}});
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
 document.getElementById('cloudModal').addEventListener('click',e=>{if(e.target.id==='cloudModal')closeCloud()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeCloud();closeImport();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeCloud();closeImport();closeForecastDrawer();}});
 document.querySelectorAll('.snav .nv').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.snav .nv').forEach(x=>x.classList.remove('on'));a.classList.add('on');}));
 const THEME_KEY='kapodo_theme_v1';
 function applyTheme(th,redraw){th=(th==='light')?'light':'dark';document.documentElement.setAttribute('data-theme',th);try{localStorage.setItem(THEME_KEY,th);}catch(e){}document.querySelectorAll('#tsw .tsb').forEach(b=>b.classList.toggle('on',b.dataset.th===th));if(redraw&&typeof Chart!=='undefined'){dM();dC();}}
