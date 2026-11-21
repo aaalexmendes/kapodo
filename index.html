@@ -216,6 +216,44 @@ tbody tr:hover{background:var(--n50)}
 .imp-warn{background:var(--a100);border:1px solid #F0D58A;color:#7A5A12;border-radius:8px;padding:10px 12px;font-size:12px;margin-bottom:12px;line-height:1.5}
 .imp-tblwrap{max-height:46vh;overflow:auto;border:1px solid var(--line);border-radius:8px}
 #sec-socios .scbody{position:relative}
+#sec-regras .sctbl,#sec-trib .sctbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin-top:4px}
+#sec-regras table.imp td,#sec-trib table.imp td,#sec-trib table.imp th{padding:7px 10px;border-bottom:1px solid var(--line)}
+table.rgtbl tr.tot td{background:var(--n50);font-weight:600}
+table.rgtbl .cs{font-size:10.5px;margin-top:2px;white-space:normal}
+.scnota{margin-top:12px;font-size:11px;color:var(--muted);line-height:1.6}
+.rgcl{background:var(--n50);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:12px;margin-bottom:12px}
+.rgcl summary{cursor:pointer;font-weight:600;color:var(--n700)}
+.rgcl ol{margin:8px 0 0;padding-left:18px;line-height:1.6;list-style:none}
+.rgin,.trpar{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.rgin label,.trpar label{display:flex;flex-direction:column;gap:4px;font-size:10.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.rgin input,.rgin select,.trpar input{padding:7px 9px;border:1px solid var(--line);border-radius:7px;font-size:13px;font-family:inherit;background:var(--card);color:var(--ink);text-transform:none;letter-spacing:0;font-weight:500}
+.rgin input{text-align:right;font-variant-numeric:tabular-nums}
+.rgin small{font-weight:400;text-transform:none;letter-spacing:0}
+.trpar span{display:flex;align-items:center;gap:4px}.trpar input{width:100%;text-align:right}
+.trck{display:flex!important;flex-direction:row!important;align-items:center;gap:8px;font-size:12px!important;text-transform:none!important;letter-spacing:0!important;color:var(--ink)!important;font-weight:500!important;margin-bottom:10px}
+.trck input{width:auto;margin:0}
+.trcfg{background:var(--n50);border:1px solid var(--line);border-radius:8px;padding:12px}
+tr.trrow{cursor:pointer}
+#mkFil{flex-wrap:wrap;max-width:100%}
+.mkwrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px}@media(max-width:900px){.mkwrap{grid-template-columns:1fr}}
+.mkyr{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--muted);margin:14px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.mkit{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:9px 10px;border-radius:8px;cursor:pointer;border-left:3px solid var(--n500)}
+.mkit:hover{background:var(--n50)}.mkit.fut{border-left-color:var(--a500);background:rgba(214,158,46,.06)}
+.mkdt{font-weight:700;font-variant-numeric:tabular-nums;font-size:12.5px;color:var(--n700)}.mkdt small{display:block;font-weight:600;font-size:10px;color:var(--a600);text-transform:uppercase}
+.mkti{font-weight:600;font-size:13px;color:var(--ink)}.mkde{font-size:12px;color:var(--ink);opacity:.85;margin-top:2px}.mkfo{font-size:10.5px;color:var(--muted);margin-top:3px}
+.mktp{display:inline-block;font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:8px;margin-right:4px;vertical-align:1px;background:var(--n100);color:var(--n700)}
+.mk-venda{background:var(--g100);color:var(--g600)}.mk-financeiro{background:var(--a100);color:var(--a600)}.mk-tributario{background:var(--r100);color:var(--r600)}.mk-imovel{background:var(--t100);color:var(--t600)}.mk-societario{background:var(--p100);color:var(--p600)}
+#mkForm{background:var(--n50);border:1px solid var(--line);border-radius:10px;padding:12px;position:sticky;top:12px;align-self:start}
+#mkForm .fld{margin-bottom:9px}
+.lbhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.lbhead label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.lblist{max-height:280px;overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.lbrow{display:grid;grid-template-columns:20px 74px 1fr auto;gap:8px;align-items:center;padding:6px 10px;border-bottom:1px solid var(--line);font-size:12px;cursor:pointer}
+.lbrow:hover{background:var(--n50)}.lbrow input{margin:0;width:auto}.lbrow .d{font-variant-numeric:tabular-nums;color:var(--muted)}
+.lbrow .ds{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lbrow .ds small{display:block;color:var(--muted);font-size:10.5px}
+.lbrow .v{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+:root[data-theme="dark"] .rgcl,:root[data-theme="dark"] .trcfg,:root[data-theme="dark"] #mkForm{background:#0F1622;border-color:#232D3D}
+:root[data-theme="dark"] table.rgtbl tr.tot td{background:#0F1622}
+:root[data-theme="dark"] .mkit:hover,:root[data-theme="dark"] .lbrow:hover{background:#141D2B}
 #sec-socios td.scano{cursor:pointer;text-decoration:underline dotted var(--muted);text-underline-offset:3px}
 #sec-socios td.scano:hover{background:var(--n100);color:var(--n700)}
 .scdrow{display:grid;grid-template-columns:78px 1fr auto;gap:10px;align-items:start;padding:10px 20px;border-bottom:1px solid var(--line)}
@@ -530,6 +568,9 @@ table.bktbl tbody tr.bkrev td{background:rgba(214,158,46,.12)}
 <a class="nv" href="#sec-hist"><svg class="ic" viewBox="0 0 24 24"><path d="M5 20V10M11 20V4M17 20v-7M2 20h20"/></svg> Consolidado</a>
 <a class="nv" href="#sec-blocos"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg> Blocos</a>
 <a class="nv" href="#sec-socios"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5M15.5 19c0-2 1.6-3.4 3.5-3.4s2.9 1.4 2.9 3.4"/></svg> Sócios</a>
+<a class="nv" href="#sec-regras"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h6"/><path d="M17 15l2 2 3-4"/></svg> Regras de distribuição</a>
+<a class="nv" href="#sec-trib"><svg class="ic" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h6M9 16h6M14 3v5h5"/></svg> Tributos a provisionar</a>
+<a class="nv" href="#sec-marcos"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v18"/><circle cx="12" cy="7" r="2"/><circle cx="12" cy="17" r="2"/><path d="M14 7h6M4 17h6"/></svg> Marcos</a>
 
 </nav>
 <div class="sdiv">Ações</div>
@@ -549,7 +590,7 @@ table.bktbl tbody tr.bkrev td{background:rgba(214,158,46,.12)}
 <div class="sdiv">Aparência</div>
 <div class="tsw" id="tsw"><button class="tsb" data-th="light" type="button"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg> Claro</button><button class="tsb" data-th="dark" type="button"><svg class="ic" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg> Escuro</button></div>
 <button class="cloudind off" id="btnCloud" title="Configurar sincronização com JSONbin"><span class="dot"></span><span id="cloudTxt">Sync desativado</span></button>
-<div class="sver" id="sVer" title="v1.8 (07/11/2026): importação confere o saldo de abertura do banco com o painel e avisa quando falta um período; substitui só os dias cobertos pelo arquivo (não o mês inteiro); Eli Crestani → dividendo; Adelir → comissão.&#10;v1.7 (31/10/2026): em Sócios, clicar no valor de um ano (ou no total) abre painel lateral com a data de cada pagamento àquele sócio/usufrutuário.&#10;v1.5 (26/10/2026): importa os dois extratos de uma vez, com a empresa identificada por lançamento; saldo de abertura do extrato vira saldo inicial; bloco de Lançamentos rola até o topo.&#10;v1.4 (16/10/2026): sinal do lançamento deduzido pela variação do saldo (débitos deixaram de entrar como receita), leitura do saldo de abertura e de fechamento, descrição sem &quot;R$&quot; solto.&#10;v1.3 (23/09/2026): venda da Fazenda Mateira (Celso Baú, R$ 25 mi em 4 parcelas), corretagem, SIMCAR/PRA, Reserva Legal, ITCD mensal, retiradas de Moacir e Eli, tributos da venda (PIS/COFINS/IRPJ/CSLL/IBS-CBS) — projeções até jan/2029.&#10;v1.2 (08/09/2026): catálogo por blocos (seção Blocos), campo bloco + ⚑ revisar em cada lançamento, extratos até 07/09/2026, categoria Cisão (Crestani); Vipinho = Itapiranga, JR Imobiliária = corretagem, Funilaria/José Valcir = serviços de terceiros nos imóveis.&#10;v1.1 (12/08/2026): duplicar lançamento · impostos detalhados (DARF) · nova categoria no import · registro de &quot;não aconteceu&quot; · contas a vencer em vermelho.&#10;v1.0 (18/07/2026): base com extratos completos."><span class="svn" id="svnTxt">Versão 1.8</span><span class="svd" id="svdTxt">07/11/2026</span></div>
+<div class="sver" id="sVer" title="v1.9 (21/11/2026): regras de distribuição da cl. 14 e caixa mínimo; provisão automática de PIS/COFINS e IRPJ/CSLL da Kápodo; linha do tempo de marcos; operações em lote listam os lançamentos para selecionar, só os futuros por padrão.&#10;v1.8 (07/11/2026): importação confere o saldo de abertura do banco com o painel e avisa quando falta um período; substitui só os dias cobertos pelo arquivo (não o mês inteiro); Eli Crestani → dividendo; Adelir → comissão.&#10;v1.7 (31/10/2026): em Sócios, clicar no valor de um ano (ou no total) abre painel lateral com a data de cada pagamento àquele sócio/usufrutuário.&#10;v1.5 (26/10/2026): importa os dois extratos de uma vez, com a empresa identificada por lançamento; saldo de abertura do extrato vira saldo inicial; bloco de Lançamentos rola até o topo.&#10;v1.4 (16/10/2026): sinal do lançamento deduzido pela variação do saldo (débitos deixaram de entrar como receita), leitura do saldo de abertura e de fechamento, descrição sem &quot;R$&quot; solto.&#10;v1.3 (23/09/2026): venda da Fazenda Mateira (Celso Baú, R$ 25 mi em 4 parcelas), corretagem, SIMCAR/PRA, Reserva Legal, ITCD mensal, retiradas de Moacir e Eli, tributos da venda (PIS/COFINS/IRPJ/CSLL/IBS-CBS) — projeções até jan/2029.&#10;v1.2 (08/09/2026): catálogo por blocos (seção Blocos), campo bloco + ⚑ revisar em cada lançamento, extratos até 07/09/2026, categoria Cisão (Crestani); Vipinho = Itapiranga, JR Imobiliária = corretagem, Funilaria/José Valcir = serviços de terceiros nos imóveis.&#10;v1.1 (12/08/2026): duplicar lançamento · impostos detalhados (DARF) · nova categoria no import · registro de &quot;não aconteceu&quot; · contas a vencer em vermelho.&#10;v1.0 (18/07/2026): base com extratos completos."><span class="svn" id="svnTxt">Versão 1.9</span><span class="svd" id="svdTxt">21/11/2026</span></div>
 </aside>
 <main class="main">
 <header class="header"><div><h1>Visão financeira <span class="tag k">Kápodo</span><span class="tag e">EMTRES</span></h1><div class="sub">Gestão de caixa das duas empresas · sync via JSONbin</div></div></header>
@@ -630,6 +671,27 @@ table.bktbl tbody tr.bkrev td{background:rgba(214,158,46,.12)}
 <div id="scUsu" style="margin-top:20px"></div>
 <div id="scNota" style="margin-top:12px;font-size:11px;color:var(--muted);line-height:1.6"></div>
 </div>
+</section>
+<section class="card" id="sec-regras" style="margin-bottom:24px">
+<div class="ch"><h3 class="ct"><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h6"/><path d="M17 15l2 2 3-4"/></svg> Distribuição do lucro líquido — regras do Acordo (cl. 14)</h3><div class="cs" id="rgSub">—</div></div>
+<div id="rgBody"></div>
+</section>
+<section class="card" id="sec-trib" style="margin-bottom:24px">
+<div class="ch"><h3 class="ct"><svg class="ic" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h6M9 16h6M14 3v5h5"/></svg> Tributos a provisionar — Kápodo (PIS/COFINS e IRPJ/CSLL)</h3><div class="cs" id="trSub">—</div></div>
+<div id="trBody"></div>
+</section>
+<section class="card" id="sec-marcos" style="margin-bottom:24px">
+<div class="ch" style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap"><div><h3 class="ct"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v18"/><circle cx="12" cy="7" r="2"/><circle cx="12" cy="17" r="2"/><path d="M14 7h6M4 17h6"/></svg> Marcos — linha do tempo</h3><div class="cs" id="mkSub">—</div></div><div class="bkseg" id="mkFil"></div></div>
+<div class="mkwrap"><div id="mkList"></div>
+<div id="mkForm"><div class="bkh" id="mkFormTit" style="margin-top:0">Novo registro</div>
+<div class="fld"><label>Data</label><input type="date" id="mkData"></div>
+<div class="fld"><label>Tipo</label><select id="mkTipo"><option>Societário</option><option>Venda</option><option>Imóvel</option><option>Financeiro</option><option>Tributário</option><option>Outro</option></select></div>
+<div class="fld"><label>O que aconteceu</label><input type="text" id="mkTit" maxlength="200" placeholder="Ex.: Escritura da Fazenda Mateira"></div>
+<div class="fld"><label>Detalhes</label><textarea id="mkDet" maxlength="600" rows="3"></textarea></div>
+<div class="fld"><label>Fonte / documento</label><input type="text" id="mkFon" maxlength="200" placeholder="Ex.: matrícula 3.229, R-06"></div>
+<div class="fld"><label>Situação</label><select id="mkConf"><option>Confirmado</option><option>A confirmar</option><option>Previsto</option></select></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" id="mkSave" type="button">Adicionar</button><button class="btn" id="mkNovo" type="button">Limpar</button><button class="btn danger hid" id="mkDel" type="button">Excluir</button></div>
+</div></div>
 </section>
 <section class="tcard">
 <div class="th"><div><h3 class="ct">Lançamentos</h3><div class="cs" id="tcnt">—</div></div><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><div class="tmonth"><span style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em">Mês</span><select id="tMonth"></select></div><div class="ts"><input type="text" id="srch" placeholder="Buscar..."></div></div></div>
@@ -762,6 +824,7 @@ table.bktbl tbody tr.bkrev td{background:rgba(214,158,46,.12)}
 <div class="fld"><label>Descrição contém</label><input type="text" id="lbDesc" placeholder="ex.: Boletos imóveis"></div>
 <div class="fld"><label>De (mês)</label><input type="month" id="lbDe"></div>
 <div class="fld"><label>Até (mês)</label><input type="month" id="lbAte"></div>
+<div class="fld" style="grid-column:1/-1"><label style="cursor:pointer"><input type="checkbox" id="lbFut" checked style="width:auto;margin-right:6px"> Só lançamentos de hoje em diante (não mexe no que já foi pago)</label></div>
 </div>
 <div class="lbprev" id="lbPrev">Defina ao menos um filtro para selecionar.</div>
 <div style="margin-top:10px"><button class="btn danger" id="lbDel" disabled>Excluir selecionados</button></div>
@@ -814,7 +877,7 @@ const TODAY_ISO=`${curY}-${String(curM).padStart(2,'0')}-${String(NOW.getDate())
 let BM={year:curY,month:curM};
 let FH='12';
 let S={year:String(curY),status:'all',empresa:'all',sortBy:'data',sortDir:'desc',search:'',tableMonth:'all'};
-const APP_VER={v:'1.8',d:'2026-11-07',dbr:'07/11/2026'};
+const APP_VER={v:'1.9',d:'2026-11-21',dbr:'21/11/2026'};
 let CH={};let editId=null;let pushTimer=null;let pendingDirty=false;let lastSaveTs=null;
 function fmtHM(d){if(!d)return'';const p=n=>String(n).padStart(2,'0');return p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());}
 const IMPORT_KEY='kapodo_last_import_v1';
@@ -838,9 +901,9 @@ function migrateIntercompany(){let n=0;DATA.forEach(t=>{if(t.tipo==='Transferên
 function saveLocal(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(DATA));localStorage.setItem(OPEN_K_KEY,String(OPEN_K));localStorage.setItem(OPEN_E_KEY,String(OPEN_E));}catch(e){}}
 function save(){saveLocal();schedulePush();}
 function schedulePush(){if(!CLOUD.enabled||!CLOUD.binId||!CLOUD.key)return;pendingDirty=true;clearTimeout(pushTimer);setSync('syncing');pushTimer=setTimeout(async()=>{const ok=await cloudPush();if(ok){pendingDirty=false;lastSaveTs=new Date();}setSync(ok?'synced':'error',ok?('Salvo '+fmtHM(lastSaveTs)):'Erro ao salvar');},700);}
-function flushPush(){if(!pendingDirty||!CLOUD.enabled||!CLOUD.binId||!CLOUD.key)return;try{const inner=JSON.stringify({data:DATA,openingKapodo:OPEN_K,openingEmtres:OPEN_E,openingAnchor:OPEN_ANCHOR,blocoRules:BLOCO_RULES,blocoExtra:BLOCO_EXTRA});const payload=JSON.stringify({z:'b64',c:LZString.compressToBase64(inner),ts:Date.now()});fetch(`https://api.jsonbin.io/v3/b/${CLOUD.binId}`,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':CLOUD.key,'X-Bin-Versioning':'false'},body:payload,keepalive:true});pendingDirty=false;}catch(e){}}
+function flushPush(){if(!pendingDirty||!CLOUD.enabled||!CLOUD.binId||!CLOUD.key)return;try{const inner=JSON.stringify({data:DATA,openingKapodo:OPEN_K,openingEmtres:OPEN_E,openingAnchor:OPEN_ANCHOR,blocoRules:BLOCO_RULES,blocoExtra:BLOCO_EXTRA,marcos:MARCOS,regras14:REGRAS14});const payload=JSON.stringify({z:'b64',c:LZString.compressToBase64(inner),ts:Date.now()});fetch(`https://api.jsonbin.io/v3/b/${CLOUD.binId}`,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':CLOUD.key,'X-Bin-Versioning':'false'},body:payload,keepalive:true});pendingDirty=false;}catch(e){}}
 async function cloudFetch(){if(!CLOUD.binId||!CLOUD.key)return null;try{const r=await fetch(`https://api.jsonbin.io/v3/b/${CLOUD.binId}/latest`,{headers:{'X-Master-Key':CLOUD.key}});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();let rec=j.record;if(rec&&rec.z==='b64'&&typeof rec.c==='string'){try{rec=JSON.parse(LZString.decompressFromBase64(rec.c));}catch(e){console.error('decompress:',e);return null;}}return rec;}catch(e){console.error('cloudFetch:',e);return null;}}
-async function cloudPush(){if(!CLOUD.binId||!CLOUD.key)return false;try{const inner=JSON.stringify({data:DATA,openingKapodo:OPEN_K,openingEmtres:OPEN_E,openingAnchor:OPEN_ANCHOR,blocoRules:BLOCO_RULES,blocoExtra:BLOCO_EXTRA});const payload={z:'b64',c:LZString.compressToBase64(inner),ts:Date.now()};const r=await fetch(`https://api.jsonbin.io/v3/b/${CLOUD.binId}`,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':CLOUD.key,'X-Bin-Versioning':'false'},body:JSON.stringify(payload)});return r.ok;}catch(e){return false;}}
+async function cloudPush(){if(!CLOUD.binId||!CLOUD.key)return false;try{const inner=JSON.stringify({data:DATA,openingKapodo:OPEN_K,openingEmtres:OPEN_E,openingAnchor:OPEN_ANCHOR,blocoRules:BLOCO_RULES,blocoExtra:BLOCO_EXTRA,marcos:MARCOS,regras14:REGRAS14});const payload={z:'b64',c:LZString.compressToBase64(inner),ts:Date.now()};const r=await fetch(`https://api.jsonbin.io/v3/b/${CLOUD.binId}`,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':CLOUD.key,'X-Bin-Versioning':'false'},body:JSON.stringify(payload)});return r.ok;}catch(e){return false;}}
 function setSync(state,msg){const el=document.getElementById('btnCloud');el.classList.remove('off','synced','syncing','error');el.classList.add(state);document.getElementById('cloudTxt').textContent=msg||({off:'Sync desativado',synced:'Sincronizado',syncing:'Sincronizando...',error:'Erro de sync'}[state]);}
 function fil(){return DATA.filter(t=>(S.year==='all'||t.ano==S.year)&&(S.status==='all'||t.status===S.status)&&(S.empresa==='all'||t.empresa===S.empresa))}
 function intercoRec(t,emp){if(t.tipo!=='Transferência'||valDir(t)<=0)return false;const d=(t.descricao||'').toLowerCase();if(emp==='EMTRES')return /k[áa]podo|kadopo/.test(d);if(emp==='Kápodo')return /emtres/.test(d);return false;}
@@ -1057,7 +1120,7 @@ function renderSocios(){
    Os parâmetros ficam em <code>SOC_PCT</code>, <code>PN_FIXO_MES</code>, <code>PN_FIXO_INICIO</code>, <code>RESERVA_DISPONIVEL</code> e <code>BASE_PROTEGIDA</code>, no início do script.`;
 }
 
-function render(){ensureBlocos();renderYearFilter();kpis();cashflow();renderToday();pending();receitas();forecast();dM();dC();tbl();renderBlocoCharts();renderBlocos();renderSocios();renderSimulacao();}
+function render(){if(typeof syncAutoTributos==='function'&&syncAutoTributos())save();ensureBlocos();renderYearFilter();kpis();cashflow();renderToday();pending();receitas();forecast();dM();dC();tbl();renderBlocoCharts();renderBlocos();renderSocios();renderSimulacao();renderRegras();renderTributos();renderMarcos();}
 function populateCats(tipo){const sel=document.getElementById('f-cat');const opts=(CAT_BY_TIPO[tipo]||[]).map(c=>`<option value="${esc(c)}">${esc(c)}</option>`);opts.push('<option value="__new__">➕ Criar nova categoria…</option>');sel.innerHTML=opts.join('');document.getElementById('f-grp').value=GRUPO_BY_CAT[sel.value]||'';_prevCat=sel.value;}
 let _prevCat=null;
 function openNewCat(){const tipo=document.getElementById('f-tipo').value;const grpSel=document.getElementById('newCatGrp');grpSel.innerHTML=P.G.map(g=>`<option value="${esc(g)}">${esc(g)}</option>`).join('');const defGrp={'Receita':'Receita Diversa','Despesa':'Despesa Diversa','Dividendo':'Distribuição','Transferência':'Movimentação Interna'}[tipo]||P.G[0];grpSel.value=defGrp;document.getElementById('newCatName').value='';document.getElementById('newCatBox').classList.remove('hid');setTimeout(()=>document.getElementById('newCatName').focus(),30);}
@@ -1078,17 +1141,24 @@ function reconcilePaidProjections(){const curYM=curY*100+curM;const reals=DATA.f
 /* Fase 1: casamento por NOME (termos do extrato) — baixa independe do valor e consome o pagamento. */
 DATA.filter(t=>(t.tipo==='Despesa'||t.tipo==='Dividendo'||t.tipo==='Receita')&&t.status==='Projetado'&&!t.cancelado&&(t.ano*100+t.mes)>=curYM&&NAME_RULES[t.descricao]).forEach(proj=>{const terms=NAME_RULES[proj.descricao];const hit=reals.find(r=>!consumed.has(r.id)&&r.empresa===proj.empresa&&r.ano===proj.ano&&r.mes===proj.mes&&((r.tipo==='Receita')===(proj.tipo==='Receita'))&&terms.some(tm=>(r.descricao||'').toLowerCase().includes(tm)));if(hit){consumed.add(hit.id);rm.add(proj.id);}});
 /* Fase 2: cobertura por categoria para o restante, ignorando pagamentos já consumidos. */
-const real={};reals.forEach(r=>{if(consumed.has(r.id))return;const k=r.empresa+'|'+(r.ano*100+r.mes)+'|'+r.categoria;real[k]=(real[k]||0)+Math.abs(r.valor||0);});const groups={};DATA.filter(t=>(t.tipo==='Despesa'||t.tipo==='Dividendo'||t.tipo==='Receita')&&t.status==='Projetado'&&!t.cancelado&&(t.ano*100+t.mes)>=curYM&&!rm.has(t.id)).forEach(t=>{const k=t.empresa+'|'+(t.ano*100+t.mes)+'|'+t.categoria;(groups[k]=groups[k]||[]).push(t);});Object.keys(groups).forEach(k=>{let budget=real[k]||0;if(budget<=0)return;groups[k].sort((a,b)=>a.valor-b.valor).forEach(t=>{if(budget>=t.valor-0.005){rm.add(t.id);budget-=t.valor;}});});
+const real={};reals.forEach(r=>{if(consumed.has(r.id))return;const k=r.empresa+'|'+(r.ano*100+r.mes)+'|'+r.categoria;real[k]=(real[k]||0)+Math.abs(r.valor||0);});const groups={};DATA.filter(t=>(t.tipo==='Despesa'||t.tipo==='Dividendo'||t.tipo==='Receita')&&t.status==='Projetado'&&!t.cancelado&&(t.ano*100+t.mes)>=curYM&&!rm.has(t.id)&&t.origem!=='auto-trib').forEach(t=>{const k=t.empresa+'|'+(t.ano*100+t.mes)+'|'+t.categoria;(groups[k]=groups[k]||[]).push(t);});Object.keys(groups).forEach(k=>{let budget=real[k]||0;if(budget<=0)return;groups[k].sort((a,b)=>a.valor-b.valor).forEach(t=>{if(budget>=t.valor-0.005){rm.add(t.id);budget-=t.valor;}});});
 if(rm.size)DATA=DATA.filter(t=>!rm.has(t.id));return rm.size;}
 function recurStep(per){return ({semanal:{d:7},quinzenal:{d:14},mensal:{m:1},bimestral:{m:2},trimestral:{m:3},semestral:{m:6},anual:{m:12}})[per]||{m:1};}
 function addPeriodISO(baseISO,per,k){const st=recurStep(per);const p=baseISO.split('-').map(Number);const Y=p[0],M=p[1],D=p[2];if(st.d){const dt=new Date(Date.UTC(Y,M-1,D));dt.setUTCDate(dt.getUTCDate()+st.d*k);return dt.toISOString().slice(0,10);}let tot=(M-1)+st.m*k;let yy=Y+Math.floor(tot/12);let mm=((tot%12)+12)%12;const last=new Date(Date.UTC(yy,mm+1,0)).getUTCDate();const dd=Math.min(D,last);return `${yy}-${String(mm+1).padStart(2,'0')}-${String(dd).padStart(2,'0')}`;}
 function updateRecurInfo(){const info=document.getElementById('recurInfo');if(!info)return;const on=document.getElementById('f-recur').checked;if(!on){info.textContent='';return;}const data=document.getElementById('f-data').value;const per=document.getElementById('f-recur-per').value;const rn=Math.max(1,Math.min(120,parseInt(document.getElementById('f-recur-n').value)||1));if(!data||rn<2){info.textContent='Informe a data e pelo menos 2 ocorrências.';return;}const last=addPeriodISO(data,per,rn-1);info.innerHTML=`Serão criados <b>${rn}</b> lançamentos (${per}): <b>${fd(data)}</b> → <b>${fd(last)}</b>. Do 2º em diante ficam como <b>Projetado</b>.`;}
 function batchCatsFor(tipo,selId,allOpt){const sel=document.getElementById(selId);const cats=CAT_BY_TIPO[tipo]||[];sel.innerHTML=(allOpt?'<option value="">Todas</option>':'')+cats.map(c=>`<option>${esc(c)}</option>`).join('');}
-function openBatch(){document.getElementById('lbTipo').value='';document.getElementById('lbCat').innerHTML='<option value="">Todas</option>';document.getElementById('lbEmp').value='';document.getElementById('lbStatus').value='';document.getElementById('lbDesc').value='';document.getElementById('lbDe').value='';document.getElementById('lbAte').value='';document.getElementById('laTipo').value='Despesa';batchCatsFor('Despesa','laCat',false);document.getElementById('laEmp').value='Kápodo';document.getElementById('laStatus').value='Projetado';document.getElementById('laDesc').value='';document.getElementById('laVal').value='';document.getElementById('laDia').value='10';document.getElementById('laMi').value='';document.getElementById('laN').value='12';batchPreview();laPreview();document.getElementById('batchModal').classList.remove('hid');}
+function openBatch(){LB_OFF=new Set();document.getElementById('lbFut').checked=true;document.getElementById('lbTipo').value='';document.getElementById('lbCat').innerHTML='<option value="">Todas</option>';document.getElementById('lbEmp').value='';document.getElementById('lbStatus').value='';document.getElementById('lbDesc').value='';document.getElementById('lbDe').value='';document.getElementById('lbAte').value='';document.getElementById('laTipo').value='Despesa';batchCatsFor('Despesa','laCat',false);document.getElementById('laEmp').value='Kápodo';document.getElementById('laStatus').value='Projetado';document.getElementById('laDesc').value='';document.getElementById('laVal').value='';document.getElementById('laDia').value='10';document.getElementById('laMi').value='';document.getElementById('laN').value='12';batchPreview();laPreview();document.getElementById('batchModal').classList.remove('hid');}
 function closeBatch(){document.getElementById('batchModal').classList.add('hid');}
-function batchMatch(){const g=id=>document.getElementById(id).value;const tp=g('lbTipo'),cat=g('lbCat'),desc=g('lbDesc').toLowerCase().trim(),emp=g('lbEmp'),st=g('lbStatus'),de=g('lbDe'),ate=g('lbAte');return DATA.filter(t=>{if(tp&&t.tipo!==tp)return false;if(cat&&t.categoria!==cat)return false;if(emp&&t.empresa!==emp)return false;if(st&&t.status!==st)return false;if(desc&&!((t.descricao||'').toLowerCase().includes(desc)))return false;const ym=t.ano*100+t.mes;if(de&&ym<+de.replace('-',''))return false;if(ate&&ym>+ate.replace('-',''))return false;return true;});}
-function batchPreview(){const anyF=['lbTipo','lbCat','lbDesc','lbEmp','lbStatus','lbDe','lbAte'].some(id=>document.getElementById(id).value);const el=document.getElementById('lbPrev');const btn=document.getElementById('lbDel');if(!anyF){el.textContent='Defina ao menos um filtro para selecionar.';btn.disabled=true;return;}const m=batchMatch();el.innerHTML=`<strong>${m.length}</strong> lançamento(s) selecionado(s) · total ${fm2(sum(m,t=>t.valor))}`;btn.disabled=m.length===0;}
-function batchDelete(){const m=batchMatch();if(!m.length)return;if(!confirm(`Excluir ${m.length} lançamento(s)? Esta ação não pode ser desfeita.`))return;const ids=new Set(m.map(t=>t.id));DATA=DATA.filter(t=>!ids.has(t.id));save();render();batchPreview();toast(`✓ ${m.length} excluído(s)`,'s');}
+function batchMatch(){const g=id=>document.getElementById(id).value;const tp=g('lbTipo'),cat=g('lbCat'),desc=g('lbDesc').toLowerCase().trim(),emp=g('lbEmp'),st=g('lbStatus'),de=g('lbDe'),ate=g('lbAte');const fut=document.getElementById('lbFut').checked;return DATA.filter(t=>{if(fut&&t.data<TODAY_ISO)return false;if(tp&&t.tipo!==tp)return false;if(cat&&t.categoria!==cat)return false;if(emp&&t.empresa!==emp)return false;if(st&&t.status!==st)return false;if(desc&&!((t.descricao||'').toLowerCase().includes(desc)))return false;const ym=t.ano*100+t.mes;if(de&&ym<+de.replace('-',''))return false;if(ate&&ym>+ate.replace('-',''))return false;return true;});}
+let LB_OFF=new Set();
+function batchPreview(){const anyF=['lbTipo','lbCat','lbDesc','lbEmp','lbStatus','lbDe','lbAte'].some(id=>document.getElementById(id).value);const el=document.getElementById('lbPrev');const btn=document.getElementById('lbDel');if(!anyF){el.textContent='Defina ao menos um filtro para ver os lançamentos.';btn.disabled=true;btn.textContent='Excluir selecionados';return;}
+ const m=batchMatch().sort((a,b)=>a.data.localeCompare(b.data));const sel=m.filter(t=>!LB_OFF.has(t.id));
+ if(!m.length){el.textContent='Nenhum lançamento com esses filtros.';btn.disabled=true;btn.textContent='Excluir selecionados';return;}
+ el.innerHTML=`<div class="lbhead"><label><input type="checkbox" id="lbAll"${sel.length===m.length?' checked':''}> <span><b>${sel.length}</b> de ${m.length} selecionado(s) · ${fm2(sum(sel,t=>t.valor))}</span></label></div><div class="lblist">${m.map(t=>`<label class="lbrow"><input type="checkbox" class="lbck" data-id="${t.id}"${LB_OFF.has(t.id)?'':' checked'}><span class="d">${fd(t.data)}</span><span class="ds"><span class="pill ${empCls(t.empresa)}" style="font-size:9px;padding:1px 5px">${esc(t.empresa)}</span> ${esc(t.descricao)}<small>${esc(t.tipo)} · ${esc(t.categoria)} · ${esc(t.status)}${t.cancelado?' · não aconteceu':''}</small></span><span class="v">${fm2(t.valor)}</span></label>`).join('')}</div>`;
+ el.querySelectorAll('.lbck').forEach(c=>c.addEventListener('change',()=>{if(c.checked)LB_OFF.delete(c.dataset.id);else LB_OFF.add(c.dataset.id);batchPreview();}));
+ document.getElementById('lbAll').addEventListener('change',e=>{m.forEach(t=>{if(e.target.checked)LB_OFF.delete(t.id);else LB_OFF.add(t.id);});batchPreview();});
+ btn.disabled=sel.length===0;btn.textContent=`Excluir ${sel.length} selecionado(s)`;}
+function batchDelete(){const m=batchMatch().filter(t=>!LB_OFF.has(t.id));if(!m.length)return;if(!confirm(`Excluir ${m.length} lançamento(s) selecionado(s)? Esta ação não pode ser desfeita.`))return;const ids=new Set(m.map(t=>t.id));DATA=DATA.filter(t=>!ids.has(t.id));LB_OFF=new Set();save();render();batchPreview();toast(`✓ ${m.length} excluído(s)`,'s');}
 function laPreview(){const g=id=>document.getElementById(id).value;const val=parseFloat(g('laVal'))||0;const n=parseInt(g('laN'))||0;const el=document.getElementById('laPrev');if(!g('laDesc')||!val||!g('laMi')||!n){el.textContent='Preencha descrição, valor, mês inicial e nº de meses.';return;}el.innerHTML=`Vai criar <strong>${n}</strong> lançamento(s) de ${fm2(val)} · total ${fm2(val*n)} (dia ${g('laDia')} de cada mês, ${g('laStatus').toLowerCase()}).`;}
 function batchAdd(){const g=id=>document.getElementById(id).value;const tipo=g('laTipo'),cat=g('laCat'),desc=g('laDesc').trim(),val=parseFloat(g('laVal')),emp=g('laEmp'),dia=Math.min(28,Math.max(1,parseInt(g('laDia'))||1)),mi=g('laMi'),n=parseInt(g('laN'))||0,st=g('laStatus');if(!desc||isNaN(val)||val<0||!mi||n<1){toast('Preencha descrição, valor, mês inicial e nº de meses','e');return;}let parts=mi.split('-');let yy=+parts[0],mm=+parts[1];let added=0;for(let i=0;i<n;i++){const data=`${yy}-${String(mm).padStart(2,'0')}-${String(dia).padStart(2,'0')}`;const t={id:uid(),tipo,categoria:cat,grupo:GRUPO_BY_CAT[cat]||'',descricao:desc,valor:val,data,dataPagto:st==='Realizado'?data:null,empresa:emp,obs:''};refreshDerivedFields(t);DATA.push(t);added++;mm++;if(mm>12){mm=1;yy++;}}save();render();toast(`✓ ${added} lançamento(s) adicionado(s)`,'s');closeBatch();}
 function openModal(id){editId=id;const t=id?DATA.find(x=>x.id===id):null;document.getElementById('mTitle').textContent=t?'Editar lançamento':'Novo lançamento';document.getElementById('btnDel').classList.toggle('hid',!t);document.getElementById('btnDup').classList.toggle('hid',!t);document.getElementById('f-tipo').value=t?t.tipo:'Despesa';closeNewCat();populateCats(t?t.tipo:'Despesa');if(t)document.getElementById('f-cat').value=t.categoria;document.getElementById('f-grp').value=GRUPO_BY_CAT[document.getElementById('f-cat').value]||'';_prevCat=document.getElementById('f-cat').value;populateBlocoSel(t?t.tipo:'Despesa',t?(t.bloco||null):null);document.getElementById('f-rev').checked=!!(t&&t.revisar);document.getElementById('f-emp').value=t?t.empresa:(S.empresa==='EMTRES'?'EMTRES':'Kápodo');document.getElementById('f-desc').value=t?t.descricao:'';document.getElementById('f-data').value=t?t.data:new Date().toISOString().split('T')[0];document.getElementById('f-val').value=t?t.valor:'';document.getElementById('f-pag').value=t&&t.dataPagto?t.dataPagto:'';document.getElementById('f-obs').value=t?t.obs||'':'';document.getElementById('f-cancel').checked=!!(t&&t.cancelado);{const rc=document.getElementById('f-recur');rc.checked=false;document.getElementById('recurOpts').classList.add('hid');document.getElementById('f-recur-per').value='mensal';document.getElementById('f-recur-n').value='12';document.getElementById('recurWrap').classList.toggle('hid',!!t);updateRecurInfo();}document.getElementById('modal').classList.remove('hid');setTimeout(()=>document.getElementById('f-desc').focus(),50);}
@@ -1097,13 +1167,13 @@ function closeModal(){document.getElementById('modal').classList.add('hid');edit
 function onSave(){const desc=document.getElementById('f-desc').value.trim();const val=parseFloat(document.getElementById('f-val').value);const data=document.getElementById('f-data').value;if(!desc){toast('Descrição obrigatória','e');return;}if(!data){toast('Data obrigatória','e');return;}if(isNaN(val)||val<0){toast('Valor inválido','e');return;}const tipo=document.getElementById('f-tipo').value;const cat=document.getElementById('f-cat').value;const pag=document.getElementById('f-pag').value||null;const canc=document.getElementById('f-cancel').checked;let obsv=document.getElementById('f-obs').value.trim();if(canc&&!obsv)obsv=`Não ocorreu — estava previsto para ${fd(data)}`;const _bl=document.getElementById('f-bloco').value;const dados={tipo,categoria:cat,grupo:GRUPO_BY_CAT[cat]||'',descricao:desc,valor:val,data,dataPagto:canc?null:pag,empresa:document.getElementById('f-emp').value,obs:obsv,cancelado:canc,revisar:document.getElementById('f-rev').checked};if(_bl&&_bl!=='__novo')dados.bloco=_bl;if(editId){const t=DATA.find(x=>x.id===editId);Object.assign(t,dados);refreshDerivedFields(t);}else{const rec=document.getElementById('f-recur').checked;const per=document.getElementById('f-recur-per').value;const rn=Math.max(1,Math.min(120,parseInt(document.getElementById('f-recur-n').value)||1));if(rec&&rn>=2){let made=0;for(let k=0;k<rn;k++){const dk=addPeriodISO(data,per,k);const t={id:uid(),...dados,data:dk,dataPagto:k===0?pag:null};refreshDerivedFields(t);DATA.push(t);made++;}save();render();closeModal();toast(`✓ ${made} lançamentos recorrentes criados`,'s');return;}const t={id:uid(),...dados};refreshDerivedFields(t);DATA.push(t);}save();render();closeModal();toast(editId?'✓ Atualizado':'✓ Adicionado','s');}
 function onDelete(){if(!editId)return;if(confirm('Excluir este lançamento?')){DATA=DATA.filter(x=>x.id!==editId);save();render();closeModal();toast('Excluído','s');}}
 function dl(blob,name){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),100);}
-function exportJson(){const payload={versao:APP_VER.v,versaoData:APP_VER.d,exportadoEm:new Date().toISOString(),data:DATA,openingKapodo:OPEN_K,openingEmtres:OPEN_E,blocoRules:BLOCO_RULES,blocoExtra:BLOCO_EXTRA};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});dl(blob,`kapodo_emtres_backup_v${APP_VER.v}_${new Date().toISOString().split('T')[0]}.json`);toast('✓ JSON exportado','s');}
+function exportJson(){const payload={versao:APP_VER.v,versaoData:APP_VER.d,exportadoEm:new Date().toISOString(),data:DATA,openingKapodo:OPEN_K,openingEmtres:OPEN_E,blocoRules:BLOCO_RULES,blocoExtra:BLOCO_EXTRA,marcos:MARCOS,regras14:REGRAS14};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});dl(blob,`kapodo_emtres_backup_v${APP_VER.v}_${new Date().toISOString().split('T')[0]}.json`);toast('✓ JSON exportado','s');}
 async function restoreBase(){if(!confirm('Reconstruir a base oficial (extratos completos Kápodo + EMTRES até 07/09/2026 + projeções)?\n\nIsto SUBSTITUI todos os dados atuais e, se a nuvem estiver ativa, regrava na nuvem.'))return;DATA=decodeInitial();try{localStorage.removeItem(EXTRATO_FLAG);}catch(e){}applyExtratoSeed();try{localStorage.removeItem(EXTRATO2_FLAG);}catch(e){}applyExtratoSeed2();applyProjDates();ensureProjections();reconcilePaidProjections();try{localStorage.removeItem(PLANO_FLAG);}catch(e){}applyPlanoMateira();ensureBlocos();try{localStorage.setItem(DATERULES_FLAG,'1');}catch(e){}saveLocal();render();toast('✓ Base restaurada: '+DATA.length+' lançamentos','s');if(CLOUD.enabled&&CLOUD.binId){setSync('syncing','Salvando na nuvem...');const ok=await cloudPush();setSync(ok?'synced':'error',ok?'Base restaurada e salva':'Erro ao salvar');}}
-function importJson(file){const reader=new FileReader();reader.onload=e=>{try{const obj=JSON.parse(e.target.result);let arr,opK,opE;if(Array.isArray(obj)){arr=obj;}else if(obj&&Array.isArray(obj.data)){arr=obj.data;opK=obj.openingKapodo;opE=obj.openingEmtres;}else throw new Error('Formato inválido');if(!confirm(`Substituir ${DATA.length} por ${arr.length}?`))return;DATA=arr.map(t=>{if(!t.id)t.id=crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2);if(!t.empresa)t.empresa='Kápodo';refreshDerivedFields(t);return t});if(typeof opK==='number')OPEN_K=opK;if(typeof opE==='number')OPEN_E=opE;if(obj&&obj.blocoRules){BLOCO_RULES=obj.blocoRules;saveBlocoRules();}if(obj&&obj.blocoExtra){BLOCO_EXTRA=obj.blocoExtra;try{localStorage.setItem(BLOCO_EXTRA_KEY,JSON.stringify(BLOCO_EXTRA));}catch(e){}}migrateIntercompany();save();render();toast(`✓ ${DATA.length} importados`,'s');}catch(err){toast('❌ '+err.message,'e');}};reader.readAsText(file);}
+function importJson(file){const reader=new FileReader();reader.onload=e=>{try{const obj=JSON.parse(e.target.result);let arr,opK,opE;if(Array.isArray(obj)){arr=obj;}else if(obj&&Array.isArray(obj.data)){arr=obj.data;opK=obj.openingKapodo;opE=obj.openingEmtres;}else throw new Error('Formato inválido');if(!confirm(`Substituir ${DATA.length} por ${arr.length}?`))return;DATA=arr.map(t=>{if(!t.id)t.id=crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2);if(!t.empresa)t.empresa='Kápodo';refreshDerivedFields(t);return t});if(typeof opK==='number')OPEN_K=opK;if(typeof opE==='number')OPEN_E=opE;if(obj&&obj.blocoRules){BLOCO_RULES=obj.blocoRules;saveBlocoRules();}if(obj&&Array.isArray(obj.marcos)){MARCOS=obj.marcos;saveMarcos();}if(obj&&obj.regras14){REGRAS14=Object.assign(REGRAS14,obj.regras14);saveRegras();}if(obj&&obj.blocoExtra){BLOCO_EXTRA=obj.blocoExtra;try{localStorage.setItem(BLOCO_EXTRA_KEY,JSON.stringify(BLOCO_EXTRA));}catch(e){}}migrateIntercompany();save();render();toast(`✓ ${DATA.length} importados`,'s');}catch(err){toast('❌ '+err.message,'e');}};reader.readAsText(file);}
 function openCloud(){document.getElementById('cfgBin').value=CLOUD.binId||'';document.getElementById('cfgKey').value=CLOUD.key||'';document.getElementById('cfgEn').checked=CLOUD.enabled;document.getElementById('cloudModal').classList.remove('hid');}
 function closeCloud(){document.getElementById('cloudModal').classList.add('hid');}
 async function testCloud(){const bin=document.getElementById('cfgBin').value.trim();const key=document.getElementById('cfgKey').value.trim();if(!bin||!key){toast('Preencha Master Key e Bin ID','e');return;}try{const r=await fetch(`https://api.jsonbin.io/v3/b/${bin}/latest`,{headers:{'X-Master-Key':key}});if(r.ok){toast('✓ Conexão OK','s');}else{toast(`Erro ${r.status} — verifique a chave/bin`,'e');}}catch(e){toast('Erro: '+e.message,'e');}}
-async function createBin(){const key=document.getElementById('cfgKey').value.trim();if(!key){toast('Cole sua Master Key primeiro','e');return;}const inner=JSON.stringify({data:DATA,openingKapodo:OPEN_K,openingEmtres:OPEN_E,openingAnchor:OPEN_ANCHOR,blocoRules:BLOCO_RULES,blocoExtra:BLOCO_EXTRA});const payload={z:'b64',c:LZString.compressToBase64(inner),ts:Date.now()};const btn=document.getElementById('cCreate');btn.disabled=true;btn.textContent='Criando...';try{const r=await fetch('https://api.jsonbin.io/v3/b',{method:'POST',headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':'Kapodo Dashboard'},body:JSON.stringify(payload)});const j=await r.json();if(r.ok&&j.metadata&&j.metadata.id){document.getElementById('cfgBin').value=j.metadata.id;document.getElementById('cfgEn').checked=true;toast('✓ Bin criado e dados enviados ('+DATA.length+' lançamentos). Clique Salvar.','s');}else{toast('Erro ao criar: '+((j&&j.message)||('HTTP '+r.status)),'e');}}catch(e){toast('Erro: '+e.message,'e');}finally{btn.disabled=false;btn.textContent='＋ Criar novo bin';}}
+async function createBin(){const key=document.getElementById('cfgKey').value.trim();if(!key){toast('Cole sua Master Key primeiro','e');return;}const inner=JSON.stringify({data:DATA,openingKapodo:OPEN_K,openingEmtres:OPEN_E,openingAnchor:OPEN_ANCHOR,blocoRules:BLOCO_RULES,blocoExtra:BLOCO_EXTRA,marcos:MARCOS,regras14:REGRAS14});const payload={z:'b64',c:LZString.compressToBase64(inner),ts:Date.now()};const btn=document.getElementById('cCreate');btn.disabled=true;btn.textContent='Criando...';try{const r=await fetch('https://api.jsonbin.io/v3/b',{method:'POST',headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':'Kapodo Dashboard'},body:JSON.stringify(payload)});const j=await r.json();if(r.ok&&j.metadata&&j.metadata.id){document.getElementById('cfgBin').value=j.metadata.id;document.getElementById('cfgEn').checked=true;toast('✓ Bin criado e dados enviados ('+DATA.length+' lançamentos). Clique Salvar.','s');}else{toast('Erro ao criar: '+((j&&j.message)||('HTTP '+r.status)),'e');}}catch(e){toast('Erro: '+e.message,'e');}finally{btn.disabled=false;btn.textContent='＋ Criar novo bin';}}
 function saveCloud(){CLOUD.binId=document.getElementById('cfgBin').value.trim();CLOUD.key=document.getElementById('cfgKey').value.trim();CLOUD.enabled=document.getElementById('cfgEn').checked;try{localStorage.setItem(CLOUD_KEY,JSON.stringify(CLOUD));}catch(e){}setSync(CLOUD.enabled?'synced':'off');closeCloud();toast('✓ Configuração salva','s');if(CLOUD.enabled)cloudPush();}
 const EXTRATO_FLAG='kapodo_extrato_seed_2026_v7';
 const DATERULES_FLAG='kapodo_proj_dates_v2';
@@ -1250,7 +1320,7 @@ OPEN_K=0;OPEN_E=0;OPEN_ANCHOR='2025-01-01';try{localStorage.setItem(OPEN_K_KEY,S
 return true;}
 const IMPOSTOS_FLAG='kapodo_impostos_darf_v1';
 function trocarImpostosGenericos(){const curYM=curY*100+curM;const old=DATA.filter(t=>t.status==='Projetado'&&t.categoria==='Tributos'&&t.descricao==='Impostos'&&(t.ano*100+t.mes)>=curYM);const ids=new Set(old.map(t=>t.id));if(ids.size)DATA=DATA.filter(t=>!ids.has(t.id));const has=new Set();DATA.forEach(t=>{if(t.status==='Projetado')has.add(t.empresa+'|'+t.ano+'|'+t.mes+'|'+t.descricao);});let add=0;const push=(y,m,desc,val,dia)=>{if(has.has('Kápodo|'+y+'|'+m+'|'+desc))return;const t={id:uid(),tipo:'Despesa',categoria:'Tributos',grupo:GRUPO_BY_CAT['Tributos']||'',descricao:desc,valor:val,data:`${y}-${String(m).padStart(2,'0')}-${String(dia).padStart(2,'0')}`,dataPagto:null,empresa:'Kápodo',obs:'Recorrência identificada nos extratos (valor estimado)'};refreshDerivedFields(t);DATA.push(t);add++;};for(let y=curY;y<=2028;y++){const m0=(y===curY)?curM:1;for(let m=m0;m<=12;m++){push(y,m,'DARF Simples Nacional',908,25);if(m===1||m===4||m===7||m===10)push(y,m,'DARF IRPJ/CSLL (trimestral)',5741,30);}}return {removidos:old.length,criados:add};}
-async function init(){let cloudHadData=false;if(CLOUD.enabled&&CLOUD.binId){setSync('syncing','Carregando da nuvem...');const cd=await cloudFetch();if(cd&&Array.isArray(cd.data)&&cd.data.length>0){DATA=cd.data.map(t=>{if(!t.id)t.id=crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2);if(!t.empresa)t.empresa='Kápodo';refreshDerivedFields(t);return t});if(typeof cd.openingKapodo==='number')OPEN_K=cd.openingKapodo;if(typeof cd.openingEmtres==='number')OPEN_E=cd.openingEmtres;if(typeof cd.openingAnchor==='string'&&cd.openingAnchor)OPEN_ANCHOR=cd.openingAnchor;if(cd.blocoRules&&typeof cd.blocoRules==='object'){BLOCO_RULES=Object.assign({},cd.blocoRules,BLOCO_RULES);saveBlocoRules();}if(cd.blocoExtra&&typeof cd.blocoExtra==='object'){Object.keys(cd.blocoExtra).forEach(k=>{BLOCO_EXTRA[k]=[...new Set([...(cd.blocoExtra[k]||[]),...(BLOCO_EXTRA[k]||[])])];});}cloudHadData=true;saveLocal();setSync('synced','Carregado da nuvem');}else if(cd&&Array.isArray(cd.data)){setSync('synced','Nuvem vazia — usando dados locais');}else{setSync('error','Falha ao carregar (offline?)');}}else{setSync('off','Sync desativado');}let seeded=false,dchg=0,_ep=0,_rp=0,_sc=0;if(!cloudHadData){migrateIntercompany();seeded=applyExtratoSeed();if(seeded)saveLocal();let _dr=false;try{_dr=!!localStorage.getItem(DATERULES_FLAG);}catch(e){}if(!_dr){dchg=applyProjDates();if(dchg>0)saveLocal();try{localStorage.setItem(DATERULES_FLAG,'1');}catch(e){}}const _sc0=DATA.length;DATA=DATA.filter(t=>!(t.status==='Projetado'&&SEED_EXCLUDE.includes(t.descricao)));_sc=_sc0-DATA.length;_ep=ensureProjections();_rp=reconcilePaidProjections();if(_ep>0||_rp>0||_sc>0){saveLocal();}if(_ep>0)toast(`✓ ${_ep} projeção(ões) recuperada(s)`,'s');if(_rp>0)toast(`✓ ${_rp} despesa(s) prevista(s) baixada(s) pelo extrato`,'s');}else{try{localStorage.setItem(EXTRATO_FLAG,'1');localStorage.setItem(DATERULES_FLAG,'1');}catch(e){}if(lastSaveTs===null){setSync('synced','Carregado da nuvem');}}const _s2=applyExtratoSeed2();const _pm=applyPlanoMateira();const _bk=ensureBlocos()+migrateBlocos()+_pm.inseridos+_pm.removidos;if(_s2>0||_bk>0)saveLocal();if(_pm.inseridos>0)toast(`✓ Plano Fazenda Mateira (23/09): ${_pm.inseridos} lançamento(s) previstos inseridos`+(_pm.removidos?`, ${_pm.removidos} projeção(ões) antiga(s) de Moacir substituída(s)`:''),'s');if(_s2>0)toast(`✓ Extrato até 07/09/2026 carregado: ${_s2} lançamento(s)`,'s');BM.year=S.year==='all'?curY:+S.year;BM.month=BM.year===curY?curM:1;render();if(CLOUD.enabled&&CLOUD.binId&&DATA.length>0&&((!cloudHadData&&(seeded||dchg>0||_ep>0||_rp>0||_sc>0))||_s2>0||_bk>0)){setSync('syncing','Salvando na nuvem...');const ok=await cloudPush();if(ok)lastSaveTs=new Date();setSync(ok?'synced':'error',ok?('Salvo '+fmtHM(lastSaveTs)):'Erro ao salvar');}window.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')flushPush();});window.addEventListener('pagehide',flushPush);window.addEventListener('beforeunload',flushPush);}
+async function init(){let cloudHadData=false;if(CLOUD.enabled&&CLOUD.binId){setSync('syncing','Carregando da nuvem...');const cd=await cloudFetch();if(cd&&Array.isArray(cd.data)&&cd.data.length>0){DATA=cd.data.map(t=>{if(!t.id)t.id=crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2);if(!t.empresa)t.empresa='Kápodo';refreshDerivedFields(t);return t});if(typeof cd.openingKapodo==='number')OPEN_K=cd.openingKapodo;if(typeof cd.openingEmtres==='number')OPEN_E=cd.openingEmtres;if(typeof cd.openingAnchor==='string'&&cd.openingAnchor)OPEN_ANCHOR=cd.openingAnchor;if(cd.blocoRules&&typeof cd.blocoRules==='object'){BLOCO_RULES=Object.assign({},cd.blocoRules,BLOCO_RULES);saveBlocoRules();}if(Array.isArray(cd.marcos)&&cd.marcos.length){MARCOS=cd.marcos;try{localStorage.setItem(MARCOS_KEY,JSON.stringify(MARCOS));localStorage.setItem(MARCOS_FLAG,'1');}catch(e){}}if(cd.regras14&&typeof cd.regras14==='object'){REGRAS14=Object.assign(REGRAS14,cd.regras14,{trib:Object.assign({},REGRAS14.trib,cd.regras14.trib||{})});try{localStorage.setItem(REGRAS_KEY,JSON.stringify(REGRAS14));}catch(e){}}if(cd.blocoExtra&&typeof cd.blocoExtra==='object'){Object.keys(cd.blocoExtra).forEach(k=>{BLOCO_EXTRA[k]=[...new Set([...(cd.blocoExtra[k]||[]),...(BLOCO_EXTRA[k]||[])])];});}cloudHadData=true;saveLocal();setSync('synced','Carregado da nuvem');}else if(cd&&Array.isArray(cd.data)){setSync('synced','Nuvem vazia — usando dados locais');}else{setSync('error','Falha ao carregar (offline?)');}}else{setSync('off','Sync desativado');}let seeded=false,dchg=0,_ep=0,_rp=0,_sc=0;if(!cloudHadData){migrateIntercompany();seeded=applyExtratoSeed();if(seeded)saveLocal();let _dr=false;try{_dr=!!localStorage.getItem(DATERULES_FLAG);}catch(e){}if(!_dr){dchg=applyProjDates();if(dchg>0)saveLocal();try{localStorage.setItem(DATERULES_FLAG,'1');}catch(e){}}const _sc0=DATA.length;DATA=DATA.filter(t=>!(t.status==='Projetado'&&SEED_EXCLUDE.includes(t.descricao)));_sc=_sc0-DATA.length;_ep=ensureProjections();_rp=reconcilePaidProjections();if(_ep>0||_rp>0||_sc>0){saveLocal();}if(_ep>0)toast(`✓ ${_ep} projeção(ões) recuperada(s)`,'s');if(_rp>0)toast(`✓ ${_rp} despesa(s) prevista(s) baixada(s) pelo extrato`,'s');}else{try{localStorage.setItem(EXTRATO_FLAG,'1');localStorage.setItem(DATERULES_FLAG,'1');}catch(e){}if(lastSaveTs===null){setSync('synced','Carregado da nuvem');}}const _mk=seedMarcos();const _s2=applyExtratoSeed2()+_mk;const _pm=applyPlanoMateira();const _bk=ensureBlocos()+migrateBlocos()+_pm.inseridos+_pm.removidos;if(_s2>0||_bk>0)saveLocal();if(_pm.inseridos>0)toast(`✓ Plano Fazenda Mateira (23/09): ${_pm.inseridos} lançamento(s) previstos inseridos`+(_pm.removidos?`, ${_pm.removidos} projeção(ões) antiga(s) de Moacir substituída(s)`:''),'s');if(_s2>0)toast(`✓ Extrato até 07/09/2026 carregado: ${_s2} lançamento(s)`,'s');BM.year=S.year==='all'?curY:+S.year;BM.month=BM.year===curY?curM:1;render();if(CLOUD.enabled&&CLOUD.binId&&DATA.length>0&&((!cloudHadData&&(seeded||dchg>0||_ep>0||_rp>0||_sc>0))||_s2>0||_bk>0)){setSync('syncing','Salvando na nuvem...');const ok=await cloudPush();if(ok)lastSaveTs=new Date();setSync(ok?'synced':'error',ok?('Salvo '+fmtHM(lastSaveTs)):'Erro ao salvar');}window.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')flushPush();});window.addEventListener('pagehide',flushPush);window.addEventListener('beforeunload',flushPush);}
 document.querySelectorAll('.fg').forEach(g=>g.addEventListener('click',e=>{if(e.target.tagName!=='BUTTON')return;g.querySelectorAll('.fb').forEach(b=>b.classList.remove('on'));e.target.classList.add('on');S[g.dataset.k]=e.target.dataset.v;render()}));
 document.querySelectorAll('thead th').forEach(th=>th.addEventListener('click',()=>{const c=th.dataset.s;if(S.sortBy===c)S.sortDir=S.sortDir==='asc'?'desc':'asc';else{S.sortBy=c;S.sortDir=c==='valor'||c==='data'||c==='dataPagto'?'desc':'asc'}tbl()}));
 document.getElementById('srch').addEventListener('input',e=>{S.search=e.target.value;tbl()});
@@ -1291,7 +1361,7 @@ document.getElementById('btnBatch').addEventListener('click',openBatch);
 document.getElementById('bxClose').addEventListener('click',closeBatch);
 document.getElementById('bxCancel').addEventListener('click',closeBatch);
 document.getElementById('lbTipo').addEventListener('change',e=>{document.getElementById('lbCat').innerHTML='<option value=\"\">Todas</option>'+((CAT_BY_TIPO[e.target.value]||[]).map(c=>`<option>${esc(c)}</option>`).join(''));batchPreview();});
-['lbCat','lbDesc','lbEmp','lbStatus','lbDe','lbAte'].forEach(id=>document.getElementById(id).addEventListener('input',batchPreview));
+['lbCat','lbDesc','lbEmp','lbStatus','lbDe','lbAte','lbFut'].forEach(id=>{document.getElementById(id).addEventListener('input',batchPreview);document.getElementById(id).addEventListener('change',batchPreview);});
 document.getElementById('lbDel').addEventListener('click',batchDelete);
 document.getElementById('laTipo').addEventListener('change',e=>{batchCatsFor(e.target.value,'laCat',false);laPreview();});
 ['laDesc','laVal','laDia','laMi','laN','laStatus'].forEach(id=>document.getElementById(id).addEventListener('input',laPreview));
@@ -1479,6 +1549,233 @@ const BLOCO_CAT={'Serviços de terceiros – imóveis alugados':'Custos Imob.','
 function refineCat(t){const c=BLOCO_CAT[t.bloco];if(c&&(t.categoria==='Outros'||t.categoria==='Ajustes'||t.categoria==='Tributos')&&(CAT_BY_TIPO[t.tipo]||[]).includes(c)){t.categoria=c;t.grupo=GRUPO_BY_CAT[c]||t.grupo;}}
 document.querySelectorAll('#bkSeg .bm').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#bkSeg .bm').forEach(x=>x.classList.toggle('on',x===b));BK.tipo=b.dataset.t;renderBlocos();}));
 
+/* ===================== v1.9 — Regras de distribuição (cl. 14), provisão de tributos e marcos ===================== */
+const CAPITAL_SOCIAL=5491297.00;               /* cl. 2.5 do Acordo de Acionistas */
+const REGRAS_KEY='kapodo_regras14_v1',MARCOS_KEY='kapodo_marcos_v1',MARCOS_FLAG='kapodo_marcos_seed_v1';
+const pad2=n=>String(n).padStart(2,'0');
+const r2=v=>Math.round(v*100)/100;
+let REGRAS14={ano:String(curY),exercicios:{},base:'lucro',mesesDesp:3,reservaInvCaixa:true,tribAuto:true,
+  trib:{pis:0.0065,cofins:0.03,irpjAlug:0.32,csllAlug:0.32,irpjVenda:0.08,csllVenda:0.12,cbs:0.0445}};
+try{const r=localStorage.getItem(REGRAS_KEY);if(r){const o=JSON.parse(r);REGRAS14=Object.assign(REGRAS14,o,{trib:Object.assign({},REGRAS14.trib,o.trib||{})});}}catch(e){}
+function saveRegras(){try{localStorage.setItem(REGRAS_KEY,JSON.stringify(REGRAS14));}catch(e){}schedulePush();}
+function exRegras(ano){REGRAS14.exercicios[ano]=REGRAS14.exercicios[ano]||{lucro:null,rlAcum:0,pagoObrig:0};return REGRAS14.exercicios[ano];}
+const numBR=v=>{const n=parseBRNum(String(v||'').replace(/R\$/,''));return isNaN(n)?0:n;};
+const fmIn=v=>(+v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+/* ---------- Marcos (linha do tempo) ---------- */
+const MARCOS_SEED=[
+ ['2024-12-20','Societário','Ata nº 07 da Crestani Participações — cisão parcial com versão de patrimônio e cronograma de pagamentos à EMTRES','Registrada na JUCEMAT em 31/01/2025. Distribuição total de R$ 3.987.650,00 (R$ 3.985.650,00 à EMTRES, em 6 parcelas).','Conferência documental de 17/09/2026','A confirmar'],
+ ['2024-12-27','Societário','Constituição da Kápodo (então KADOPO Consultoria e Empreendimentos)','Início das atividades em 27/12/2024 pelo contrato consolidado; o cartão CNPJ indica 30/12/2024 — divergência a conferir.','Handoff unificado (19/09/2026)','A confirmar'],
+ ['2025-05-19','Societário','EMTRES transformada em S.A.','3ª Alteração registrada na JUCIS-DF (nº 53300029709) em 27/06/2025, com efeitos desde 19/05/2025.','Handoff unificado (19/09/2026)','Confirmado'],
+ ['2025-06-17','Venda','Venda do imóvel de São Miguel do Oeste/SC à Itapiranga Automóveis','Parte dos lotes 274 e 272, matrícula 3.525. R$ 4.900.000,00: sinal de R$ 900.000,00 e 39 parcelas; parcelas de R$ 100.000,00 até 20/07/2028 e R$ 500.000,00 em 20/08/2028.','Handoff unificado (19/09/2026)','Confirmado'],
+ ['2025-06-26','Societário','2ª Alteração da Kápodo registrada: denominação KADOPO → KÁPODO','JUCIS-DF nº 2792378, com efeitos desde 15/05/2025.','Handoff unificado (19/09/2026)','Confirmado'],
+ ['2025-07-31','Societário','Doação das ações da EMTRES por Moacir e Eli, com reserva de usufruto das preferenciais','Termos de transferência assinados no Clicksign em 24/08/2025. Data de averbação no Livro de Registro de Ações: a confirmar.','Livro de Atos / conferência documental','Confirmado'],
+ ['2025-08-21','Societário','Acordo de Acionistas da EMTRES','Rege a companhia e prevalece sobre o Estatuto; cl. 14 trata da distribuição de lucros.','Acordo de Sócios EMTRES 21.08.25','Confirmado'],
+ ['2025-12-15','Societário','Atas de distribuição de lucros da EMTRES e da Kápodo (janela da Lei 15.270/2025)','Ata da EMTRES protocolada na JUCIS-DF em 18/12/2025 (registro nº 2881225). Ata da Kápodo sem comprovante de registro localizado.','Handoff unificado (19/09/2026)','Confirmado'],
+ ['2026-08-29','Financeiro','Crestani — parcela c.3 liquidada','R$ 481.781,48 em dinheiro + R$ 18.218,52 por compensação.','Livro de Atos','Confirmado'],
+ ['2026-09-11','Imóvel','Cisão registrada nas matrículas da Fazenda Mateira (R-05)','Glebas incorporadas ao patrimônio da Kápodo; cadastro atualizado (AV-04).','Matrículas 1.477, 1.478 e 3.229','Confirmado'],
+ ['2026-09-16','Venda','Venda da Fazenda Mateira a Celso Baú — R$ 25.000.000,00','Compromisso assinado; sinal de R$ 3.000.000,00 recebido. Entrada de R$ 7.000.000,00 em 05/11/2026 e parcelas de R$ 7.500.000,00 em 30/10/2027 e 30/10/2028.','Livro de Atos','Confirmado'],
+ ['2026-09-25','Financeiro','Distribuição aos acionistas: Kelly R$ 2.320.000,00 e Alex R$ 1.080.000,00','Pagos pela EMTRES após o repasse de R$ 3.000.000,00 da Kápodo.','Conferência dos extratos (26/10/2026)','Confirmado'],
+ ['2026-10-26','Imóvel','Quitação das promissórias de Luzivaldo averbada (AV-06)','Instrumento de quitação de 28/09/2026; gravame baixado nas três matrículas.','Matrículas 1.477, 1.478 e 3.229','Confirmado'],
+ ['2026-11-03','Financeiro','Entrada da Fazenda Mateira: TEDs de Celso Baú de R$ 1.215.709,00 e R$ 1.000.000,00','Parte da entrada de R$ 7.000.000,00; conferir no extrato de 27/10 a 02/11 se houve outro crédito.','Extrato BTG Kápodo','Confirmado'],
+ ['2026-11-03','Financeiro','Distribuição aos acionistas: Anderson R$ 2.861.763,93, Kelly R$ 541.736,31 e Isabela R$ 360.000,00','Pagos pela EMTRES com o repasse de R$ 5.000.000,00 da Kápodo no mesmo dia.','Extrato BTG EMTRES','Confirmado'],
+ ['2026-11-04','Financeiro','Corretagem da venda da Mateira paga a Adelir Ramme — R$ 1.000.000,00','4% sobre R$ 25.000.000,00.','Extrato BTG Kápodo','Confirmado'],
+ ['2027-10-30','Venda','Previsto: 3ª parcela da Fazenda Mateira — R$ 7.500.000,00','','Contrato com Celso Baú','Previsto'],
+ ['2028-10-30','Venda','Previsto: 4ª parcela da Fazenda Mateira — R$ 7.500.000,00','','Contrato com Celso Baú','Previsto'],
+ ['2028-12-31','Tributário','Fim da janela da Lei 15.270/2025 para pagar lucros apurados até 2025 sem retenção','','Lei 15.270/2025 — regra de transição','Previsto']
+].map(([data,tipo,titulo,detalhe,fonte,conf],i)=>({id:'seed-'+i,data,tipo,titulo,detalhe,fonte,conf}));
+let MARCOS=[];try{const m=localStorage.getItem(MARCOS_KEY);if(m)MARCOS=JSON.parse(m)||[];}catch(e){}
+let MARCOS_DIRTY=false;
+function seedMarcos(){let done=false;try{done=!!localStorage.getItem(MARCOS_FLAG);}catch(e){}if(done||MARCOS.length)return 0;MARCOS=MARCOS_SEED.map(x=>Object.assign({},x));try{localStorage.setItem(MARCOS_FLAG,'1');localStorage.setItem(MARCOS_KEY,JSON.stringify(MARCOS));}catch(e){}MARCOS_DIRTY=true;return MARCOS.length;}
+function saveMarcos(){try{localStorage.setItem(MARCOS_KEY,JSON.stringify(MARCOS));localStorage.setItem(MARCOS_FLAG,'1');}catch(e){}schedulePush();}
+let MK_EDIT=null,MK_FILTRO='';
+const MK_TIPOS=['Societário','Venda','Imóvel','Financeiro','Tributário','Outro'];
+function renderMarcos(){const el=document.getElementById('mkList');if(!el)return;
+ const lst=MARCOS.filter(m=>!MK_FILTRO||m.tipo===MK_FILTRO).sort((a,b)=>b.data.localeCompare(a.data));
+ document.getElementById('mkSub').textContent=`${MARCOS.length} registro(s) · ${MARCOS.filter(m=>m.data>TODAY_ISO).length} previsto(s) adiante · clique num registro para editar`;
+ document.getElementById('mkFil').innerHTML=['',...MK_TIPOS].map(t=>`<button class="bm${MK_FILTRO===t?' on':''}" data-t="${t}">${t||'Todos'}</button>`).join('');
+ let ano=null,html='';
+ lst.forEach(m=>{const y=m.data.slice(0,4);if(y!==ano){ano=y;html+=`<div class="mkyr">${y}</div>`;}
+  const fut=m.data>TODAY_ISO;
+  html+=`<div class="mkit${fut?' fut':''}" data-id="${esc(m.id)}"><div class="mkdt">${fd(m.data)}${fut?'<small>previsto</small>':''}</div><div class="mkbody"><div class="mkti"><span class="mktp mk-${esc((m.tipo||'Outro').normalize('NFD').replace(/[^a-z]/gi,'').toLowerCase())}">${esc(m.tipo||'Outro')}</span> ${esc(m.titulo)}</div>${m.detalhe?`<div class="mkde">${esc(m.detalhe)}</div>`:''}<div class="mkfo">${m.fonte?'Fonte: '+esc(m.fonte):''}${m.conf&&m.conf!=='Confirmado'?` · <b>${esc(m.conf)}</b>`:''}</div></div></div>`;});
+ el.innerHTML=html||'<div class="fcdempty">Nenhum registro.</div>';
+ el.querySelectorAll('.mkit').forEach(x=>x.addEventListener('click',()=>mkEdit(x.dataset.id)));
+ document.querySelectorAll('#mkFil .bm').forEach(b=>b.addEventListener('click',()=>{MK_FILTRO=b.dataset.t;renderMarcos();}));}
+function mkForm(m){document.getElementById('mkData').value=m?m.data:TODAY_ISO;document.getElementById('mkTipo').value=m?(m.tipo||'Outro'):'Societário';document.getElementById('mkTit').value=m?m.titulo:'';document.getElementById('mkDet').value=m?(m.detalhe||''):'';document.getElementById('mkFon').value=m?(m.fonte||''):'';document.getElementById('mkConf').value=m?(m.conf||'Confirmado'):'Confirmado';document.getElementById('mkDel').classList.toggle('hid',!m);document.getElementById('mkSave').textContent=m?'Salvar alterações':'Adicionar';document.getElementById('mkFormTit').textContent=m?'Editar registro':'Novo registro';}
+function mkEdit(id){MK_EDIT=id;mkForm(MARCOS.find(m=>m.id===id));document.getElementById('mkForm').scrollIntoView({behavior:'smooth',block:'center'});}
+function mkSave(){const data=document.getElementById('mkData').value,titulo=document.getElementById('mkTit').value.trim();if(!data||!titulo){toast('Informe a data e o título','e');return;}
+ const o={data,tipo:document.getElementById('mkTipo').value,titulo,detalhe:document.getElementById('mkDet').value.trim(),fonte:document.getElementById('mkFon').value.trim(),conf:document.getElementById('mkConf').value};
+ if(MK_EDIT){Object.assign(MARCOS.find(m=>m.id===MK_EDIT),o);}else MARCOS.push(Object.assign({id:uid()},o));
+ MK_EDIT=null;mkForm(null);saveMarcos();renderMarcos();toast('✓ Registro salvo','s');}
+function mkDel(){if(!MK_EDIT)return;if(!confirm('Excluir este registro?'))return;MARCOS=MARCOS.filter(m=>m.id!==MK_EDIT);MK_EDIT=null;mkForm(null);saveMarcos();renderMarcos();toast('Registro excluído','s');}
+
+/* ---------- Tributos sobre recebimentos (Kápodo — lucro presumido, regime de caixa) ---------- */
+const TRIB_CATS={'Aluguéis':'alug','Venda de Imóvel':'venda'};
+const _isoD=d=>`${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
+const _ferCache={};
+function feriados(y){if(_ferCache[y])return _ferCache[y];const s=new Set(['01-01','04-21','05-01','09-07','10-12','11-02','11-15','11-20','12-25'].map(x=>`${y}-${x}`));
+ /* Páscoa (algoritmo de Meeus) → Carnaval (seg/ter), Sexta-feira Santa e Corpus Christi */
+ const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mes=Math.floor((h+l-7*m+114)/31),dia=((h+l-7*m+114)%31)+1;
+ const pas=new Date(y,mes-1,dia,12);[-48,-47,-2,60].forEach(o=>{const x=new Date(pas);x.setDate(x.getDate()+o);s.add(_isoD(x));});return _ferCache[y]=s;}
+function diaUtil(iso){const d=new Date(iso+'T12:00:00');const w=d.getDay();return w!==0&&w!==6&&!feriados(d.getFullYear()).has(iso);}
+function antUtil(iso){const d=new Date(iso+'T12:00:00');while(!diaUtil(_isoD(d)))d.setDate(d.getDate()-1);return _isoD(d);}
+function ultUtil(y,m){return antUtil(_isoD(new Date(y,m,0,12)));}
+/* Devolve as guias: PIS/COFINS (mensal, dia 25 do mês seguinte; CBS/IBS a partir de 2027) e IRPJ/CSLL (trimestral, último dia útil do mês seguinte ao trimestre). */
+function calcTributos(soRealizado){const P=REGRAS14.trib;
+ const rec=DATA.filter(t=>t.empresa==='Kápodo'&&t.tipo==='Receita'&&!t.cancelado&&TRIB_CATS[t.categoria]&&(!soRealizado||t.status==='Realizado'));
+ const porMes={};rec.forEach(t=>{const d=t.status==='Realizado'?(t.dataPagto||t.data):t.data;const ym=d.slice(0,7);const o=porMes[ym]=porMes[ym]||{alug:0,venda:0};o[TRIB_CATS[t.categoria]]+=t.valor;});
+ const out=[];
+ Object.keys(porMes).forEach(ym=>{const o=porMes[ym];const R=o.alug+o.venda;if(R<=0)return;const[y,m]=ym.split('-').map(Number);const ny=m===12?y+1:y,nm=m===12?1:m+1;
+  if(y<=2026){const venc=antUtil(`${ny}-${pad2(nm)}-25`);out.push({key:'PIS '+ym,trib:'PIS',comp:mLabel(y*100+m),venc,base:R,valor:r2(R*P.pis)});out.push({key:'COFINS '+ym,trib:'COFINS',comp:mLabel(y*100+m),venc,base:R,valor:r2(R*P.cofins)});}
+  else{const venc=antUtil(`${ny}-${pad2(nm)}-20`);out.push({key:'CBS/IBS '+ym,trib:'CBS/IBS',comp:mLabel(y*100+m),venc,base:R,valor:r2(R*P.cbs),aconf:true});}});
+ const porTri={};Object.keys(porMes).forEach(ym=>{const[y,m]=ym.split('-').map(Number);const q=Math.ceil(m/3);const k=y+'T'+q;const o=porTri[k]=porTri[k]||{y,q,alug:0,venda:0};o.alug+=porMes[ym].alug;o.venda+=porMes[ym].venda;});
+ Object.values(porTri).forEach(o=>{const bIR=o.alug*P.irpjAlug+o.venda*P.irpjVenda,bCS=o.alug*P.csllAlug+o.venda*P.csllVenda;if(bIR<=0)return;const mv=o.q*3+1;const venc=ultUtil(mv>12?o.y+1:o.y,mv>12?1:mv);
+  out.push({key:`IRPJ ${o.y}T${o.q}`,trib:'IRPJ',comp:`${o.q}º tri/${o.y}`,venc,base:bIR,valor:r2(bIR*0.15+Math.max(0,bIR-60000)*0.10)});
+  out.push({key:`CSLL ${o.y}T${o.q}`,trib:'CSLL',comp:`${o.q}º tri/${o.y}`,venc,base:bCS,valor:r2(bCS*0.09)});});
+ return out.sort((a,b)=>a.venc.localeCompare(b.venc)||a.trib.localeCompare(b.trib));}
+const AUTO_TRIB_BLOCO={PIS:'DARF – PIS/COFINS',COFINS:'DARF – PIS/COFINS',IRPJ:'DARF – IRPJ/CSLL (trimestral)',CSLL:'DARF – IRPJ/CSLL (trimestral)','CBS/IBS':'CBS/IBS'};
+/* Mantém as provisões como lançamentos previstos (origem 'auto-trib'), do mês corrente em diante.
+   Pagas ou marcadas "não aconteceu" não são recriadas. Devolve true se mudou algo. */
+function syncAutoTributos(){const mesIni=`${curY}-${pad2(curM)}-01`;
+ const fix=new Set(DATA.filter(t=>t.origem==='auto-trib'&&(t.status==='Realizado'||t.cancelado)).map(t=>t.autoKey));
+ const want=REGRAS14.tribAuto?calcTributos(false).filter(p=>p.venc>=mesIni&&!fix.has(p.key)&&p.valor>=0.01):[];
+ const cur=DATA.filter(t=>t.origem==='auto-trib'&&t.status==='Projetado'&&!t.cancelado);
+ const sig=a=>a.map(x=>(x.key||x.autoKey)+'|'+(x.venc||x.data)+'|'+Number(x.valor).toFixed(2)).sort().join(';');
+ if(sig(want)===sig(cur))return false;
+ const ids=new Set(cur.map(t=>t.id));DATA=DATA.filter(t=>!ids.has(t.id));
+ want.forEach(p=>{const t={id:uid(),tipo:'Despesa',categoria:'Tributos',descricao:`${p.trib} — competência ${p.comp} (provisão automática)`,valor:p.valor,data:p.venc,dataPagto:null,empresa:'Kápodo',origem:'auto-trib',autoKey:p.key,bloco:AUTO_TRIB_BLOCO[p.trib],revisar:!!p.aconf,obs:`Base ${fm2(p.base)} · lucro presumido, regime de caixa${p.aconf?' · alíquota e vencimento a confirmar com a Planning':''}`};refreshDerivedFields(t);DATA.push(t);});
+ return true;}
+function tribAntigos(){const mesIni=`${curY}-${pad2(curM)}-01`;return DATA.filter(t=>t.empresa==='Kápodo'&&t.status==='Projetado'&&!t.cancelado&&t.origem!=='auto-trib'&&t.data>=mesIni&&/^Tributos$/.test(t.categoria||'')&&/pis|cofins|irpj|csll|ibs|cbs|darf|imposto/i.test(t.descricao||''));}
+function substituirTribAntigos(){const l=tribAntigos();if(!l.length)return;if(!confirm(`Marcar ${l.length} previsão(ões) antiga(s) de impostos como "não aconteceu"?\n\nElas saem do fluxo de caixa e podem ser revertidas depois (botão ↩ em Contas a vencer).`))return;l.forEach(t=>{t.cancelado=true;t.obs=(t.obs?t.obs+' | ':'')+`Substituída pela provisão automática de tributos (v1.9, ${fd(TODAY_ISO)})`;});save();render();toast(`✓ ${l.length} previsão(ões) antiga(s) substituída(s)`,'s');}
+function renderTributos(){const el=document.getElementById('trBody');if(!el)return;const P=REGRAS14.trib;
+ const mesIni=`${curY}-${pad2(curM)}-01`;
+ const autos=DATA.filter(t=>t.origem==='auto-trib').sort((a,b)=>a.data.localeCompare(b.data));
+ const pend=autos.filter(t=>t.status==='Projetado'&&!t.cancelado);
+ const devidoReal=calcTributos(true).filter(p=>p.venc>=mesIni);const pagosKeys=new Set(autos.filter(t=>t.status==='Realizado'||t.cancelado).map(t=>t.autoKey));
+ const reservar=sum(devidoReal.filter(p=>!pagosKeys.has(p.key)),p=>p.valor);
+ document.getElementById('trSub').textContent=REGRAS14.tribAuto?`${pend.length} guia(s) a pagar · ${fm2(sum(pend,t=>t.valor))} no total · ${fm2(reservar)} já são devidos sobre o que entrou`:'Provisão automática desligada';
+ const antigos=tribAntigos();
+ const sit=t=>t.cancelado?'<span class="pill" style="background:var(--n100);color:var(--muted)">não aconteceu</span>':t.status==='Realizado'?'<span class="pill realizado">pago</span>':(t.data<TODAY_ISO?'<span class="pill despesa">vencida</span>':'<span class="pill projetado">a pagar</span>');
+ el.innerHTML=`
+ <div class="trcfg">
+  <label class="trck"><input type="checkbox" id="trAuto"${REGRAS14.tribAuto?' checked':''}> Lançar as provisões no fluxo de caixa (Contas a vencer e Previsões)</label>
+  <div class="trpar">
+   ${[['pis','PIS'],['cofins','COFINS'],['irpjVenda','Presunção IRPJ — venda'],['csllVenda','Presunção CSLL — venda'],['irpjAlug','Presunção IRPJ — aluguel'],['csllAlug','Presunção CSLL — aluguel'],['cbs','CBS/IBS a partir de 2027']].map(([k,l])=>`<label>${l}<span><input type="text" class="trp" data-k="${k}" value="${(P[k]*100).toLocaleString('pt-BR',{maximumFractionDigits:4})}">%</span></label>`).join('')}
+  </div>
+ </div>
+ ${antigos.length?`<div class="imp-warn" style="margin:10px 0">⚠️ Há <b>${antigos.length}</b> previsão(ões) de impostos lançadas antes (por exemplo “${esc(antigos[0].descricao)}”, ${fm2(antigos[0].valor)}) somando <b>${fm2(sum(antigos,t=>t.valor))}</b>. Elas tendem a duplicar as provisões calculadas. <button class="btn" id="trSubst" type="button" style="margin-left:6px">Marcar como substituídas</button></div>`:''}
+ <div class="sctbl"><table class="imp" style="width:100%"><thead><tr><th>Vencimento</th><th>Tributo</th><th>Competência</th><th style="text-align:right">Base</th><th style="text-align:right">Valor</th><th>Situação</th></tr></thead><tbody>
+ ${autos.length?autos.map(t=>`<tr data-id="${t.id}" class="trrow"><td>${fd(t.data)}</td><td>${esc((t.autoKey||'').split(' ')[0])}${t.revisar?' <span class="imp-badge" style="background:var(--a500);color:#fff" title="Alíquota e vencimento a confirmar">⚑</span>':''}</td><td>${esc((t.descricao.match(/competência (.*?) \(/)||[])[1]||'')}</td><td style="text-align:right">${esc((t.obs.match(/Base (R\$ [\d.,]+)/)||[])[1]||'')}</td><td style="text-align:right;font-weight:600">${fm2(t.valor)}</td><td>${sit(t)}</td></tr>`).join(''):`<tr><td colspan="6" style="color:var(--muted)">${REGRAS14.tribAuto?'Nenhum recebimento tributável a partir deste mês.':'Ligue a provisão automática para ver as guias.'}</td></tr>`}
+ </tbody></table></div>
+ <div class="scnota">
+  <b>Como é calculado.</b> A Kápodo está no lucro presumido, regime de caixa: o imposto nasce quando o dinheiro entra. Entram na base os recebimentos das categorias <b>Venda de Imóvel</b> e <b>Aluguéis</b> (realizados pela data do crédito; previstos pela data esperada).
+  <b>PIS</b> ${(P.pis*100).toLocaleString('pt-BR')}% e <b>COFINS</b> ${(P.cofins*100).toLocaleString('pt-BR')}% sobre o recebido no mês, com vencimento no dia 25 do mês seguinte (antecipado se não for dia útil).
+  <b>IRPJ</b> 15% mais adicional de 10% sobre a base que passar de R$ 60.000,00 no trimestre, e <b>CSLL</b> 9%, sobre a presunção de ${(P.irpjVenda*100).toLocaleString('pt-BR')}% / ${(P.csllVenda*100).toLocaleString('pt-BR')}% (venda) e ${(P.irpjAlug*100).toLocaleString('pt-BR')}% / ${(P.csllAlug*100).toLocaleString('pt-BR')}% (aluguel), vencendo no último dia útil do mês seguinte ao fim do trimestre (cota única).
+  Com esses parâmetros o cálculo reproduz os valores da Planning para o sinal da Mateira (PIS 19.500, COFINS 90.000, IRPJ 54.000, CSLL 32.400).
+  <br><b>Limites.</b> Não considera rendimentos financeiros, retenções na fonte, parcelamento do IRPJ em três quotas, ganho de capital nem a hipótese de a venda da Mateira ser tributada como ativo não circulante — essa pergunta segue em aberto com a Planning. A partir de 2027 o PIS/COFINS dá lugar à CBS: a alíquota de ${(P.cbs*100).toLocaleString('pt-BR')}% e o vencimento no dia 20 foram tirados da estimativa da Planning para as parcelas da Mateira e estão marcados ⚑ a confirmar. Feriados considerados: nacionais, Carnaval, Sexta-feira Santa e Corpus Christi; municipais não.
+ </div>`;
+ document.getElementById('trAuto').addEventListener('change',e=>{REGRAS14.tribAuto=e.target.checked;saveRegras();render();});
+ el.querySelectorAll('.trp').forEach(i=>i.addEventListener('change',()=>{const v=numBR(i.value)/100;if(!(v>=0&&v<1)){toast('Percentual inválido','e');renderTributos();return;}REGRAS14.trib[i.dataset.k]=v;saveRegras();render();}));
+ const sb=document.getElementById('trSubst');if(sb)sb.addEventListener('click',substituirTribAntigos);
+ el.querySelectorAll('tr.trrow').forEach(tr=>tr.addEventListener('click',()=>openModal(tr.dataset.id)));}
+
+/* ---------- Distribuição do lucro líquido — cl. 14.2 do Acordo ---------- */
+function usuImput(n){const pgs=pagamentosA(n);const out=[];let saldo=0,i=0;const ate=TODAY_ISO.slice(0,7);
+ mesesAte(PN_FIXO_INICIO,ate).forEach(ym=>{saldo+=(PN_FIXO_MES[+ym.slice(0,4)]||0);while(i<pgs.length&&pgs[i].data.slice(0,7)<=ym){const v=pgs[i].valor,f=Math.min(v,saldo);saldo-=f;out.push({data:pgs[i].data,fixo:f,unico:v-f});i++;}});
+ while(i<pgs.length){out.push({data:pgs[i].data,fixo:0,unico:pgs[i].valor});i++;}return out;}
+function calcRegras(ano){const ex=exRegras(ano);const y=+ano;const L=ex.lucro===null||ex.lucro===''?null:+ex.lucro;
+ const mesesFixo=y===2025?4:12;   /* fixo devido desde set/2025 */
+ const fixoDev=2*mesesFixo*(PN_FIXO_MES[y]||0);const unicoDev=y===2026?2*PN_UNICO_POR_USU:0;
+ let fixoPago=0,unicoPago=0;USUFRUTUARIOS.forEach(n=>usuImput(n).forEach(p=>{if(p.data.slice(0,4)===ano)fixoPago+=p.fixo;unicoPago+=p.unico;}));
+ unicoPago=Math.min(unicoPago,unicoDev);
+ const pn=fixoDev+unicoDev;const Lv=L||0;
+ const base=REGRAS14.base==='saldo'?Math.max(0,Lv-pn):Lv;
+ const rlTeto=Math.max(0,0.2*CAPITAL_SOCIAL-(+ex.rlAcum||0));
+ const rl=Math.min(0.05*base,rlTeto),ri=0.05*base;
+ const obrig=REGRAS14.base==='saldo'?0.30*Math.max(0,Lv-pn-rl-ri):0.30*Lv;
+ const livre=Lv-pn-rl-ri-obrig;
+ const pagoOrdAno=Object.keys(SOC_PCT).reduce((a,n)=>a+sum(pagamentosA(n).filter(t=>t.data.slice(0,4)===ano),t=>t.valor),0);
+ const pagoObrig=Math.min(+ex.pagoObrig||0,obrig);
+ return{ano,L,fixoDev,fixoPago,fixoPend:Math.max(0,fixoDev-fixoPago),unicoDev,unicoPago,unicoPend:Math.max(0,unicoDev-unicoPago),pn,rl,rlTeto,ri,obrig,pagoObrig,obrigPend:Math.max(0,obrig-pagoObrig),livre,pagoOrdAno,base};}
+function despesasPrevistas(emp,meses){const lim=new Date(curY,curM-1+meses,0);const ate=_isoD(lim);const ini=`${curY}-${pad2(curM)}-01`;
+ const antigos=REGRAS14.tribAuto?new Set(tribAntigos().map(t=>t.id)):new Set();
+ return sum(DATA.filter(t=>t.empresa===emp&&t.tipo==='Despesa'&&t.status==='Projetado'&&!t.cancelado&&t.origem!=='auto-trib'&&!antigos.has(t.id)&&t.data>=ini&&t.data<=ate),t=>t.valor);}
+function renderRegras(){const el=document.getElementById('rgBody');if(!el)return;
+ const anos=[...new Set([2025,2026,2027,2028,curY])].sort();const ano=REGRAS14.ano;const ex=exRegras(ano);const c=calcRegras(ano);
+ const mesIni=`${curY}-${pad2(curM)}-01`;
+ const autos=new Set(DATA.filter(t=>t.origem==='auto-trib'&&(t.status==='Realizado'||t.cancelado)).map(t=>t.autoKey));
+ const tribDevidos=sum(calcTributos(true).filter(p=>p.venc>=mesIni&&!autos.has(p.key)),p=>p.valor);
+ const N=Math.max(1,Math.min(12,+REGRAS14.mesesDesp||3));
+ const sK=saldoHoje('Kápodo'),sE=saldoHoje('EMTRES');const dK=despesasPrevistas('Kápodo',N),dE=despesasPrevistas('EMTRES',N);
+ const excK=sK-tribDevidos-dK;
+ const riCaixa=REGRAS14.reservaInvCaixa?c.ri:0;
+ const reterE=dE+c.fixoPend+c.unicoPend+c.obrigPend+riCaixa;
+ const livreCaixa=sE+Math.max(0,excK)-reterE;
+ const semL=c.L===null;
+ const L=(t,v,cls,nota)=>`<tr${cls?` class="${cls}"`:''}><td>${t}${nota?`<div class="cs">${nota}</div>`:''}</td><td style="text-align:right;font-variant-numeric:tabular-nums">${v}</td></tr>`;
+ document.getElementById('rgSub').textContent=semL?`Exercício ${ano}: informe o lucro líquido apurado pela contabilidade para calcular as destinações`:`Exercício ${ano} · lucro líquido ${fm2(c.L)} · obrigatório (30%) ${fm2(c.obrig)} · livre para deliberação ${fm2(Math.max(0,c.livre))}`;
+ el.innerHTML=`
+ <details class="rgcl"${localStorage.getItem('kapodo_rg_cl')==='0'?'':' open'}><summary>O que diz a cláusula 14 do Acordo de Acionistas</summary>
+  <ol>
+   <li><b>14.1</b> — distribuições <b>semestrais</b>, com base no resultado do período; ajuste no último quadrimestre pelo lucro do ano fiscal.</li>
+   <li><b>14.2 (i)</b> — primeiro, o <b>dividendo fixo obrigatório</b> das preferenciais Classe A (cl. 2.8: R$ 90.000,00 por ação ao ano, corrigido pelo IPCA, não cumulativo; e o dividendo fixo único de R$ 500.000,00 por ação no exercício de 2026).</li>
+   <li><b>(ii)</b> — 5% do resultado para a <b>reserva legal</b> (art. 193 da Lei das S.A.), antes de qualquer outra destinação.</li>
+   <li><b>(iii)</b> — 5% do resultado para a <b>reserva de investimentos e fluxo de caixa</b>.</li>
+   <li><b>(iv)</b> — <b>dividendo obrigatório de 30% do lucro líquido</b>, pago depois do fixo das preferenciais.</li>
+   <li><b>(v)</b> — o que exceder o obrigatório tem destino decidido pela <b>maioria do capital</b>.</li>
+   <li><b>14.3</b> — se a reserva legal mais a de investimentos passarem de R$ 500.000,00 (corrigidos pelo IPCA), o excedente pode ser distribuído por maioria. <b>14.4</b> — prejuízo no fim do ano pode ser abatido das divisões seguintes. <b>14.5</b> — divisão fora da proporção do capital só com aprovação <b>unânime e por escrito</b>.</li>
+  </ol></details>
+ <div class="rgin">
+  <label>Exercício<select id="rgAno">${anos.map(a=>`<option${String(a)===ano?' selected':''}>${a}</option>`).join('')}</select></label>
+  <label>Lucro líquido do exercício<input type="text" id="rgL" placeholder="informar" value="${c.L===null?'':fmIn(c.L)}"></label>
+  <label>Reserva legal já constituída<input type="text" id="rgRL" value="${fmIn(ex.rlAcum)}"></label>
+  <label>Já pago por conta do obrigatório<input type="text" id="rgPg" value="${fmIn(ex.pagoObrig)}"><small>pago aos ordinaristas em ${ano}: ${fm2(c.pagoOrdAno)} <a href="#" id="rgUsar">usar</a></small></label>
+  <label>Base dos 5% e dos 30%<select id="rgBase"><option value="lucro"${REGRAS14.base==='lucro'?' selected':''}>Lucro líquido (texto literal)</option><option value="saldo"${REGRAS14.base==='saldo'?' selected':''}>Saldo após o dividendo fixo</option></select></label>
+  <label>Despesas a cobrir<select id="rgN">${[1,2,3,4,6,9,12].map(n=>`<option value="${n}"${n===N?' selected':''}>próximos ${n} ${n===1?'mês':'meses'}</option>`).join('')}</select></label>
+  <label class="trck" style="align-self:end"><input type="checkbox" id="rgRI"${REGRAS14.reservaInvCaixa?' checked':''}> Manter a reserva de investimentos em caixa</label>
+ </div>
+ <div class="bkgrid2" style="margin-top:12px">
+ <div><div class="bkh">Destinação do lucro — ordem da cl. 14.2</div>
+ <div class="sctbl"><table class="imp rgtbl" style="width:100%"><tbody>
+  ${L('<b>Lucro líquido do exercício</b>',semL?'<span style="color:var(--a600)">informar</span>':'<b>'+fm2(c.L)+'</b>','')}
+  ${L('(i) Dividendo fixo das preferenciais',fm2(c.fixoDev),'',`2 usufrutuários × ${c.ano==='2025'?'4':'12'} meses × ${fm2(PN_FIXO_MES[+ano]||0)} · pago em ${ano}: ${fm2(c.fixoPago)} · <b>pendente ${fm2(c.fixoPend)}</b>`)}
+  ${c.unicoDev?L('(i) Dividendo fixo único de 2026',fm2(c.unicoDev),'',`pago até hoje: ${fm2(c.unicoPago)} · <b>pendente ${fm2(c.unicoPend)}</b>`):''}
+  ${L('(ii) Reserva legal — 5%',fm2(c.rl),'',`teto de 20% do capital (${fm2(0.2*CAPITAL_SOCIAL)}); ainda cabem ${fm2(c.rlTeto)}`)}
+  ${L('(iii) Reserva de investimentos e fluxo de caixa — 5%',fm2(c.ri),'')}
+  ${L('(iv) Dividendo obrigatório — 30%',fm2(c.obrig),'',`já pago por conta dele: ${fm2(c.pagoObrig)} · <b>pendente ${fm2(c.obrigPend)}</b>`)}
+  ${L('<b>(v) Saldo para deliberação da maioria</b>',`<b style="color:${c.livre<0?'var(--r600)':'var(--g600)'}">${fm2(c.livre)}</b>`,'tot',c.livre<0&&!semL?'O lucro não cobre todas as destinações: o dividendo fixo vem primeiro (cl. 14.2, i).':'')}
+ </tbody></table></div></div>
+ <div><div class="bkh">Caixa: o que deixar na conta e o que pode ser distribuído</div>
+ <div class="sctbl"><table class="imp rgtbl" style="width:100%"><tbody>
+  ${L('Saldo da Kápodo hoje',fm2(sK),'')}
+  ${L('− Tributos devidos sobre o que já entrou',fm2(tribDevidos),'','PIS/COFINS e IRPJ/CSLL das guias ainda não pagas (seção Tributos)')}
+  ${L(`− Despesas previstas da Kápodo (${N} ${N===1?'mês':'meses'})`,fm2(dK),'','ITCD, condomínio, contabilidade, regularização ambiental etc. — sem as previsões antigas de impostos, que a provisão automática substitui')}
+  ${L('<b>= Pode subir para a EMTRES</b>',`<b style="color:${excK<0?'var(--r600)':'inherit'}">${fm2(excK)}</b>`,'tot',excK<0?'Falta caixa na Kápodo para as obrigações do período.':'Antes de transferir, lembre que Moacir tem 2,0636% da Kápodo.')}
+  ${L('Saldo da EMTRES hoje',fm2(sE),'')}
+  ${L('+ O que pode vir da Kápodo',fm2(Math.max(0,excK)),'')}
+  ${L(`− Despesas previstas da EMTRES (${N} ${N===1?'mês':'meses'})`,fm2(dE),'')}
+  ${L('− Dividendo fixo das preferenciais pendente',fm2(c.fixoPend+c.unicoPend),'',c.unicoPend?`inclui ${fm2(c.unicoPend)} do dividendo único de 2026`:'')}
+  ${L('− Dividendo obrigatório (30%) pendente',fm2(c.obrigPend),'',semL?'sem lucro informado, fica zerado':'')}
+  ${REGRAS14.reservaInvCaixa?L('− Reserva de investimentos e fluxo de caixa',fm2(c.ri),''):''}
+  ${L('<b>= Livre para distribuição por deliberação</b>',`<b style="color:${livreCaixa<0?'var(--r600)':'var(--g600)'}">${fm2(livreCaixa)}</b>`,'tot','limitado também ao saldo do inciso (v) e às reservas de lucros existentes')}
+  ${L('<b>Total a manter em caixa nas duas empresas</b>',`<b>${fm2(tribDevidos+dK+reterE)}</b>`,'')}
+ </tbody></table></div></div></div>
+ <div class="scnota">
+  <b>Pontos a validar com a Planning e o advogado.</b>
+  (1) O lucro líquido vem da contabilidade — o painel só enxerga o caixa e não o calcula. (2) O texto não deixa claro se os 5% e os 30% incidem sobre o lucro inteiro ou sobre o saldo depois do dividendo fixo; por isso a opção “Base”. A Lei das S.A. (art. 202) calcula o obrigatório sobre o lucro ajustado, após a reserva legal. (3) A reserva legal tem o teto de 20% do capital (art. 193) e, por lei, não pode ser distribuída, o que conflita com a cl. 14.3. (4) Os pagamentos de 2026 feitos com base na ata de 15/12/2025 são de reservas de anos anteriores; só lance em “Já pago por conta do obrigatório” o que for, de fato, do lucro deste exercício. (5) A EMTRES não registrou reserva legal até aqui, segundo a análise anterior; informe o saldo quando a Planning ajustar.
+ </div>`;
+ const reb=()=>{saveRegras();renderRegras();};
+ document.getElementById('rgAno').addEventListener('change',e=>{REGRAS14.ano=e.target.value;reb();});
+ document.getElementById('rgL').addEventListener('change',e=>{const v=e.target.value.trim();ex.lucro=v===''?null:numBR(v);reb();});
+ document.getElementById('rgRL').addEventListener('change',e=>{ex.rlAcum=numBR(e.target.value);reb();});
+ document.getElementById('rgPg').addEventListener('change',e=>{ex.pagoObrig=numBR(e.target.value);reb();});
+ document.getElementById('rgUsar').addEventListener('click',e=>{e.preventDefault();ex.pagoObrig=r2(c.pagoOrdAno);reb();});
+ document.getElementById('rgBase').addEventListener('change',e=>{REGRAS14.base=e.target.value;reb();});
+ document.getElementById('rgN').addEventListener('change',e=>{REGRAS14.mesesDesp=+e.target.value;reb();});
+ document.getElementById('rgRI').addEventListener('change',e=>{REGRAS14.reservaInvCaixa=e.target.checked;reb();});
+ el.querySelector('details.rgcl').addEventListener('toggle',e=>{try{localStorage.setItem('kapodo_rg_cl',e.target.open?'1':'0');}catch(_){}});}
+
+document.getElementById('mkSave').addEventListener('click',mkSave);document.getElementById('mkDel').addEventListener('click',mkDel);document.getElementById('mkNovo').addEventListener('click',()=>{MK_EDIT=null;mkForm(null);});mkForm(null);
 initTheme();
 updateUndoBtn();
 init();
